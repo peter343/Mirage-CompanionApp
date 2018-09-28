@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */; };
 		8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724802156C1C8007AC3AE /* AppDelegate.swift */; };
 		8EB724832156C1C8007AC3AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724822156C1C8007AC3AE /* ViewController.swift */; };
 		8EB724862156C1C8007AC3AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB724842156C1C8007AC3AE /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		8EB7248E2156C1CA007AC3AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB7248C2156C1CA007AC3AE /* LaunchScreen.storyboard */; };
 		8EB724992156C1CA007AC3AE /* Mirage_Companion_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724982156C1CA007AC3AE /* Mirage_Companion_AppTests.swift */; };
 		8EB724A42156C1CA007AC3AE /* Mirage_Companion_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724A32156C1CA007AC3AE /* Mirage_Companion_AppUITests.swift */; };
+		8EB724B42156C41D007AC3AE /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiConnectionViewController.swift; sourceTree = "<group>"; };
 		8EB7247D2156C1C8007AC3AE /* Mirage Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mirage Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB724802156C1C8007AC3AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EB724822156C1C8007AC3AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,8 @@
 		8EB7249F2156C1CA007AC3AE /* Mirage Companion AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mirage Companion AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB724A32156C1CA007AC3AE /* Mirage_Companion_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirage_Companion_AppUITests.swift; sourceTree = "<group>"; };
 		8EB724A52156C1CA007AC3AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mirage Companion App.entitlements"; sourceTree = "<group>"; };
+		8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB724B42156C41D007AC3AE /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 				8EB724972156C1CA007AC3AE /* Mirage Companion AppTests */,
 				8EB724A22156C1CA007AC3AE /* Mirage Companion AppUITests */,
 				8EB7247E2156C1C8007AC3AE /* Products */,
+				8EB724B22156C41D007AC3AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +106,10 @@
 		8EB7247F2156C1C8007AC3AE /* Mirage Companion App */ = {
 			isa = PBXGroup;
 			children = (
+				8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */,
 				8EB724802156C1C8007AC3AE /* AppDelegate.swift */,
 				8EB724822156C1C8007AC3AE /* ViewController.swift */,
+				8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */,
 				8EB724842156C1C8007AC3AE /* Main.storyboard */,
 				8EB7248A2156C1CA007AC3AE /* Assets.xcassets */,
 				8EB7248C2156C1CA007AC3AE /* LaunchScreen.storyboard */,
@@ -126,6 +135,14 @@
 				8EB724A52156C1CA007AC3AE /* Info.plist */,
 			);
 			path = "Mirage Companion AppUITests";
+			sourceTree = "<group>";
+		};
+		8EB724B22156C41D007AC3AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +213,17 @@
 				TargetAttributes = {
 					8EB7247C2156C1C8007AC3AE = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 					8EB724932156C1CA007AC3AE = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -262,6 +290,7 @@
 				8EB724832156C1C8007AC3AE /* ViewController.swift in Sources */,
 				8EB724892156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld in Sources */,
 				8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */,
+				8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mirage Companion App/Mirage Companion App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 743LU673R8;
 				INFOPLIST_FILE = "Mirage Companion App/Info.plist";
@@ -452,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Mirage Companion App/Mirage Companion App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 743LU673R8;
 				INFOPLIST_FILE = "Mirage Companion App/Info.plist";

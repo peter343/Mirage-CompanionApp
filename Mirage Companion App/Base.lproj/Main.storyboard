@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,103 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mirage_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0v-kE-s3g">
+                                <rect key="frame" x="148.5" y="361" width="78" height="30"/>
+                                <state key="normal" title="Disconnect"/>
+                                <connections>
+                                    <action selector="disconnectFromPi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFb-zw-d82"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter WiFi Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oza-qE-KJP">
+                                <rect key="frame" x="16" y="134" width="258" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="6Fs-1e-7xV"/>
+                                    <constraint firstAttribute="height" constant="30" id="EBf-pG-lzn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter WiFi Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ef-EX-qfk">
+                                <rect key="frame" x="16" y="193" width="258" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="000-Pu-84E"/>
+                                    <constraint firstAttribute="width" constant="258" id="Me4-dV-HVe"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNi-d0-GQo">
+                                <rect key="frame" x="318" y="134" width="36" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="Hkm-Db-hCW"/>
+                                    <constraint firstAttribute="height" constant="30" id="Kt0-FY-V7e"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendWifiName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oaN-U7-UKb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AZ-e2-AaD">
+                                <rect key="frame" x="318" y="193" width="36" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="NgN-8c-MIj"/>
+                                    <constraint firstAttribute="height" constant="30" id="YSF-bR-Ev1"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendWifiPass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gs7-oU-Jzw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Ef-EX-qfk" firstAttribute="top" secondItem="oza-qE-KJP" secondAttribute="bottom" constant="29" id="8iS-36-MNi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uNi-d0-GQo" secondAttribute="trailing" constant="21" id="AAC-Ky-rXO"/>
+                            <constraint firstItem="uNi-d0-GQo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="Cf6-8o-4Dg"/>
+                            <constraint firstItem="oza-qE-KJP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="ChE-jL-4z1"/>
+                            <constraint firstItem="oza-qE-KJP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D1K-MM-iry"/>
+                            <constraint firstItem="W0v-kE-s3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Syr-FD-U1e"/>
+                            <constraint firstItem="4AZ-e2-AaD" firstAttribute="top" secondItem="uNi-d0-GQo" secondAttribute="bottom" constant="29" id="gg1-fm-HxU"/>
+                            <constraint firstItem="8Ef-EX-qfk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r2f-Qt-21v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4AZ-e2-AaD" secondAttribute="trailing" constant="21" id="tYL-IX-wOK"/>
+                            <constraint firstItem="W0v-kE-s3g" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="42.5" id="zDq-Ie-1O2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="disconnectButton" destination="W0v-kE-s3g" id="fuU-RV-tw1"/>
+                        <outlet property="sendWifiNameButton" destination="uNi-d0-GQo" id="UyU-B6-2fu"/>
+                        <outlet property="sendWifiPassButton" destination="4AZ-e2-AaD" id="vbS-QW-5Yx"/>
+                        <outlet property="wifiNameField" destination="oza-qE-KJP" id="ILb-il-dnW"/>
+                        <outlet property="wifiPassField" destination="8Ef-EX-qfk" id="Dfr-TH-e0h"/>
+                        <segue destination="uGB-tl-ojC" kind="show" identifier="BluetoothDone" id="8i4-BX-vDv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="112.8" y="26.53673163418291"/>
+        </scene>
+        <!--WiFiConnection-->
+        <scene sceneID="rZN-fC-Qb0">
+            <objects>
+                <viewController title="WiFiConnection" id="uGB-tl-ojC" customClass="WiFiConnectionViewController" customModule="Mirage_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hRg-nl-aiy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dNc-gm-01c"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHT-WJ-3KF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="27"/>
         </scene>
     </scenes>
 </document>
