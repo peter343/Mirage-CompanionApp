@@ -89,7 +89,7 @@
                         <outlet property="sendWifiPassButton" destination="4AZ-e2-AaD" id="vbS-QW-5Yx"/>
                         <outlet property="wifiNameField" destination="oza-qE-KJP" id="ILb-il-dnW"/>
                         <outlet property="wifiPassField" destination="8Ef-EX-qfk" id="Dfr-TH-e0h"/>
-                        <segue destination="uGB-tl-ojC" kind="show" identifier="BluetoothDone" id="8i4-BX-vDv"/>
+                        <segue destination="uGB-tl-ojC" kind="show" identifier="WiFiConnected" id="8i4-BX-vDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
