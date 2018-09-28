@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */; };
 		8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E629119215ED2CA00B68779 /* ActivityViewController.swift */; };
-		8E62911D215ED42D00B68779 /* WiFiConnectionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E62911C215ED42D00B68779 /* WiFiConnectionDelegates.swift */; };
 		8E629120215ED5E200B68779 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E62911F215ED5E200B68779 /* Constants.swift */; };
 		8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724802156C1C8007AC3AE /* AppDelegate.swift */; };
 		8EB724832156C1C8007AC3AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724822156C1C8007AC3AE /* ViewController.swift */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiConnectionViewController.swift; sourceTree = "<group>"; };
 		8E629119215ED2CA00B68779 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		8E62911C215ED42D00B68779 /* WiFiConnectionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiConnectionDelegates.swift; sourceTree = "<group>"; };
 		8E62911F215ED5E200B68779 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EB7247D2156C1C8007AC3AE /* Mirage Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mirage Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB724802156C1C8007AC3AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,14 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E62911B215ED3F900B68779 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8E62911C215ED42D00B68779 /* WiFiConnectionDelegates.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		8E62911E215ED5CC00B68779 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				8E62911E215ED5CC00B68779 /* Helpers */,
-				8E62911B215ED3F900B68779 /* Extensions */,
 				8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */,
 				8EB724802156C1C8007AC3AE /* AppDelegate.swift */,
 				8EB724822156C1C8007AC3AE /* ViewController.swift */,
@@ -315,7 +304,6 @@
 				8EB724832156C1C8007AC3AE /* ViewController.swift in Sources */,
 				8EB724892156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld in Sources */,
 				8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */,
-				8E62911D215ED42D00B68779 /* WiFiConnectionDelegates.swift in Sources */,
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
 				8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */,
 				8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */,
