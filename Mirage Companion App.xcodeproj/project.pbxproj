@@ -19,6 +19,8 @@
 		8EB724992156C1CA007AC3AE /* Mirage_Companion_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724982156C1CA007AC3AE /* Mirage_Companion_AppTests.swift */; };
 		8EB724A42156C1CA007AC3AE /* Mirage_Companion_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB724A32156C1CA007AC3AE /* Mirage_Companion_AppUITests.swift */; };
 		8EB724B42156C41D007AC3AE /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */; };
+		8ED34FB6215FCFAF00644006 /* BluetoothConnectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */; };
+		8ED34FB8215FD96A00644006 /* WiFiSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		8EB724A52156C1CA007AC3AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mirage Companion App.entitlements"; sourceTree = "<group>"; };
 		8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectorViewController.swift; sourceTree = "<group>"; };
+		8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				8EB7248C2156C1CA007AC3AE /* LaunchScreen.storyboard */,
 				8EB7248F2156C1CA007AC3AE /* Info.plist */,
 				8EB724872156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld */,
+				8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */,
+				8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */,
 			);
 			path = "Mirage Companion App";
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
 				8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */,
 				8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */,
+				8ED34FB6215FCFAF00644006 /* BluetoothConnectorViewController.swift in Sources */,
+				8ED34FB8215FD96A00644006 /* WiFiSetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
