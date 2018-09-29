@@ -80,11 +80,20 @@ extension BluetoothConnectorViewController: CBCentralManagerDelegate {
             print("central.state is .poweredOff")
         case .poweredOn:
             print("central.state is .poweredOn")
-            centralManager.scanForPeripherals(withServices: [wifiStatusService], options: nil)
+            
+            if (centralManager.retrieveConnectedPeripherals(withServices: [wifiStatusService]).isEmpty) {
+                centralManager.scanForPeripherals(withServices: [wifiStatusService], options: nil)
+            } else {
+                miragePeripheral = centralManager.retrieveConnectedPeripherals(withServices: [wifiStatusService])[0]
+                miragePeripheral?.delegate = self
+                centralManager.connect(miragePeripheral!, options: nil)
+            }
+            
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print("Found Mirage")
         miragePeripheral = peripheral
         miragePeripheral!.delegate = self
         centralManager.stopScan()
@@ -92,6 +101,7 @@ extension BluetoothConnectorViewController: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("Did connect")
         miragePeripheral!.discoverServices([wifiStatusService])
     }
 }
@@ -128,13 +138,6 @@ extension BluetoothConnectorViewController: CBPeripheralDelegate {
         if (wifiStatChrc != nil) {
             miragePeripheral?.readValue(for: wifiStatChrc!)
         }
-        
-//        print("About to segue")
-//        if (wifiConnected) {
-//            self.performSegue(withIdentifier: "SkipWiFiSetup", sender: nil)
-//        } else {
-//            self.performSegue(withIdentifier: "EnterWiFiSetup", sender: nil)
-//        }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {

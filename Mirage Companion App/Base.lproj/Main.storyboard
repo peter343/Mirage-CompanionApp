@@ -196,28 +196,66 @@
             </objects>
             <point key="canvasLocation" x="912.79999999999995" y="769.56521739130437"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome Screen-->
         <scene sceneID="XkW-8J-Az8">
             <objects>
-                <viewController id="HO0-vD-iFZ" sceneMemberID="viewController">
+                <viewController title="Welcome Screen" id="HO0-vD-iFZ" customClass="WelcomeViewController" customModule="Mirage_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lLq-lE-L3s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WiFi Connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-c4-N0E">
-                                <rect key="frame" x="126.5" y="323" width="122" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyt-ic-073">
+                                <rect key="frame" x="144" y="74" width="87.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-ps-H87">
+                                <rect key="frame" x="88.5" y="193" width="198" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="iRK-gr-u8t"/>
+                                    <constraint firstAttribute="width" constant="198" id="yJi-jR-quy"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDO-Fh-0eC">
+                                <rect key="frame" x="88.5" y="271" width="198" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RR2-lT-4VG"/>
+                                    <constraint firstAttribute="width" constant="198" id="k7h-Le-ddS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quW-Of-idC">
+                                <rect key="frame" x="156" y="343" width="63" height="30"/>
+                                <state key="normal" title="Save Info"/>
+                                <connections>
+                                    <action selector="savePressed:" destination="HO0-vD-iFZ" eventType="touchUpInside" id="4Hd-L2-q7B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7MZ-c4-N0E" firstAttribute="centerX" secondItem="lLq-lE-L3s" secondAttribute="centerX" id="7WT-SE-bqI"/>
-                            <constraint firstItem="7MZ-c4-N0E" firstAttribute="centerY" secondItem="lLq-lE-L3s" secondAttribute="centerY" id="qeH-yO-JZb"/>
+                            <constraint firstItem="quW-Of-idC" firstAttribute="centerY" secondItem="lLq-lE-L3s" secondAttribute="centerY" constant="24.5" id="2cI-Wv-aju"/>
+                            <constraint firstItem="o0x-ps-H87" firstAttribute="centerX" secondItem="lLq-lE-L3s" secondAttribute="centerX" id="4cU-2e-sNJ"/>
+                            <constraint firstItem="o0x-ps-H87" firstAttribute="top" secondItem="jyt-ic-073" secondAttribute="bottom" constant="91.5" id="8Gz-Ti-rvb"/>
+                            <constraint firstItem="mDO-Fh-0eC" firstAttribute="centerX" secondItem="lLq-lE-L3s" secondAttribute="centerX" id="G5A-DV-bp2"/>
+                            <constraint firstItem="jyt-ic-073" firstAttribute="centerY" secondItem="lLq-lE-L3s" secondAttribute="centerY" constant="-246" id="J6R-QW-KpY"/>
+                            <constraint firstItem="jyt-ic-073" firstAttribute="centerX" secondItem="lLq-lE-L3s" secondAttribute="centerX" id="Xad-gs-yM5"/>
+                            <constraint firstItem="mDO-Fh-0eC" firstAttribute="top" secondItem="o0x-ps-H87" secondAttribute="bottom" constant="48" id="cPG-qK-ESc"/>
+                            <constraint firstItem="quW-Of-idC" firstAttribute="centerX" secondItem="lLq-lE-L3s" secondAttribute="centerX" id="kUq-K0-66E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UjY-ja-CPe"/>
                     </view>
+                    <connections>
+                        <outlet property="addressField" destination="mDO-Fh-0eC" id="l9a-3C-pHm"/>
+                        <outlet property="nameField" destination="o0x-ps-H87" id="BnY-ye-2Hl"/>
+                        <outlet property="saveButton" destination="quW-Of-idC" id="6xa-I0-kEx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bi0-Lo-C0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

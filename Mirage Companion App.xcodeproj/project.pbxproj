@@ -21,6 +21,7 @@
 		8EB724B42156C41D007AC3AE /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */; };
 		8ED34FB6215FCFAF00644006 /* BluetoothConnectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */; };
 		8ED34FB8215FD96A00644006 /* WiFiSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */; };
+		8ED34FBD215FFA4400644006 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FBC215FFA4400644006 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectorViewController.swift; sourceTree = "<group>"; };
 		8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSetupViewController.swift; sourceTree = "<group>"; };
+		8ED34FBC215FFA4400644006 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				8EB724872156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld */,
 				8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */,
 				8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */,
+				8ED34FBC215FFA4400644006 /* WelcomeViewController.swift */,
 			);
 			path = "Mirage Companion App";
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EB724832156C1C8007AC3AE /* ViewController.swift in Sources */,
+				8ED34FBD215FFA4400644006 /* WelcomeViewController.swift in Sources */,
 				8EB724892156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld in Sources */,
 				8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */,
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
