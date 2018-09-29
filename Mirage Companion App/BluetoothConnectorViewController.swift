@@ -47,13 +47,18 @@ class BluetoothConnectorViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "EnterWiFiSetup") {
+            let wifiSetup = segue.destination as! WiFiSetupViewController
+            wifiSetup.centralManager = centralManager
+            wifiSetup.miragePeripheral = miragePeripheral
+            wifiSetup.wifiStatChrc = wifiStatChrc
+            wifiSetup.wifiSSIDChrc = wifiSSIDChrc
+            wifiSetup.wifiPASSChrc = wifiPASSChrc
+        } else {
+            // Do any setup for next view
+        }
         
-        let wifiSetup = segue.destination as! WiFiSetupViewController
-        wifiSetup.centralManager = centralManager
-        wifiSetup.miragePeripheral = miragePeripheral
-        wifiSetup.wifiStatChrc = wifiStatChrc
-        wifiSetup.wifiSSIDChrc = wifiSSIDChrc
-        wifiSetup.wifiPASSChrc = wifiPASSChrc
+        
     }
 }
 
@@ -111,7 +116,6 @@ extension BluetoothConnectorViewController: CBPeripheralDelegate {
             switch characteristic.uuid {
             case wifiStatChrcUUID:
                 wifiStatChrc = characteristic
-                miragePeripheral?.readValue(for: wifiStatChrc!)
             case wifiSSIDChrcUUID:
                 wifiSSIDChrc = characteristic
             case wifiPASSChrcUUID:
@@ -119,18 +123,27 @@ extension BluetoothConnectorViewController: CBPeripheralDelegate {
             default:
                 break
             }
+            
+        }
+        if (wifiStatChrc != nil) {
+            miragePeripheral?.readValue(for: wifiStatChrc!)
         }
         
+//        print("About to segue")
+//        if (wifiConnected) {
+//            self.performSegue(withIdentifier: "SkipWiFiSetup", sender: nil)
+//        } else {
+//            self.performSegue(withIdentifier: "EnterWiFiSetup", sender: nil)
+//        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
+        wifiConnected = (byte != 0 ? true : false)
         if (wifiConnected) {
             self.performSegue(withIdentifier: "SkipWiFiSetup", sender: nil)
         } else {
             self.performSegue(withIdentifier: "EnterWiFiSetup", sender: nil)
         }
     }
-    
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
-        wifiConnected = (byte != 0 ? true : false)
-    }
-    
 }

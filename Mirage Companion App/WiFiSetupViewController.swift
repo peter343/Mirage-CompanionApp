@@ -25,8 +25,7 @@ class WiFiSetupViewController: UIViewController {
     // IBOutlets
     @IBOutlet weak var wifiSSIDTextField: UITextField!
     @IBOutlet weak var wifiPASSTextField: UITextField!
-    @IBOutlet weak var sendSSIDButton: UIButton!
-    @IBOutlet weak var sendPASSButton: UIButton!
+    @IBOutlet weak var sendWiFiInfo: UIButton!
     
     // Values for SSID and PASS TextFields
     var ssidValue = ""
@@ -38,13 +37,10 @@ class WiFiSetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Disable Buttons
-        sendSSIDButton.isEnabled = false
-        sendPASSButton.isEnabled = false
-        
         // Assign Delegates
         wifiSSIDTextField.delegate = self
         wifiPASSTextField.delegate = self
+        miragePeripheral.delegate = self
         
         // Enable Notifications for WiFi Status Characteristic
         miragePeripheral.setNotifyValue(true, for: wifiStatChrc)
@@ -53,36 +49,26 @@ class WiFiSetupViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func sendWiFiSSID(_ sender: Any) {
-        
-        let ssidData = ssidValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
-        miragePeripheral.writeValue(ssidData!, for: wifiSSIDChrc, type: .withResponse)
+    @IBAction func sendWiFiInfo(_ sender: Any) {
+        if (ssidValue == "" || passValue == "") {
+            // Tell user to enter information
+            print("No information")
+        } else {
+            let ssidData = ssidValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
+            miragePeripheral.writeValue(ssidData!, for: wifiSSIDChrc, type: .withResponse)
+        }
     }
-    
-    @IBAction func sendWiFiPASS(_ sender: Any) {
-        
-        let passData = passValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
-        miragePeripheral.writeValue(passData!, for: wifiPASSChrc, type: .withResponse)
-    }
-    
-    
-    
     
     // MARK: - Navigation
     
-    // Check if WiFi has been connected yet
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return wifiConnected
-    }
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
     }
-    
-
 }
+
+
 
 // MARK: - Extensions
 
@@ -93,7 +79,11 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
             print("Error writing to characteristic: error")
             return
         }
-        print("Message sent to " + characteristic.uuid.uuidString)
+        
+        if (characteristic == wifiSSIDChrc) {
+            let passData = passValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
+            miragePeripheral.writeValue(passData!, for: wifiPASSChrc, type: .withResponse)
+        }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
@@ -112,21 +102,14 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
         
         if (characteristic == wifiStatChrc) {
             guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
-            wifiConnected = (byte != 0 ? true : false)
+            if (byte != 0) {
+                self.performSegue(withIdentifier: "WiFiSetupDone", sender: nil)
+            }
         }
     }
 }
 
 extension WiFiSetupViewController: UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (textField == wifiSSIDTextField) {
-            sendSSIDButton.isEnabled = (string != "")
-        } else {
-            sendPASSButton.isEnabled = (string != "")
-        }
-        return true
-    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
@@ -135,5 +118,13 @@ extension WiFiSetupViewController: UITextFieldDelegate {
         } else {
             passValue = textField.text ?? ""
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if (textField == wifiSSIDTextField) {
+            wifiPASSTextField.becomeFirstResponder()
+        }
+        return true
     }
 }
