@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02A0803C3F12C3AF294C5606 /* Pods_Mirage_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0CAE92228063717ED1AE92 /* Pods_Mirage_Companion_AppTests.framework */; };
+		1871CDD3309F7C4D4094AEEA /* Pods_Mirage_Companion_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E1C0D819F36B311A604A29 /* Pods_Mirage_Companion_AppUITests.framework */; };
 		8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */; };
 		8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E629119215ED2CA00B68779 /* ActivityViewController.swift */; };
 		8E629120215ED5E200B68779 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E62911F215ED5E200B68779 /* Constants.swift */; };
@@ -22,6 +24,15 @@
 		8ED34FB6215FCFAF00644006 /* BluetoothConnectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */; };
 		8ED34FB8215FD96A00644006 /* WiFiSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */; };
 		8ED34FBD215FFA4400644006 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FBC215FFA4400644006 /* WelcomeViewController.swift */; };
+		8ED34FCC2161244700644006 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FCA2161244700644006 /* User+CoreDataClass.swift */; };
+		8ED34FCD2161244700644006 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FCB2161244700644006 /* User+CoreDataProperties.swift */; };
+		8ED34FCF216131C300644006 /* MirageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FCE216131C300644006 /* MirageUser.swift */; };
+		8ED34FD12161611200644006 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */; };
+		8ED34FD32162DFEE00644006 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FD22162DFEE00644006 /* SetupProfileViewController.swift */; };
+		8ED34FD52162DFF700644006 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FD42162DFF700644006 /* EditProfileViewController.swift */; };
+		8ED34FD72165832400644006 /* EditFreqDestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FD62165832400644006 /* EditFreqDestsTableViewController.swift */; };
+		8ED34FD92169148900644006 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FD82169148900644006 /* UnderlinedTextField.swift */; };
+		E60CE1D4E0F5CE7745110DDE /* Pods_Mirage_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B81526A58C1A57B84E603F7 /* Pods_Mirage_Companion_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054339910223F100A949AD7F /* Pods-Mirage Companion App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App.debug.xcconfig"; sourceTree = "<group>"; };
+		5B81526A58C1A57B84E603F7 /* Pods_Mirage_Companion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirage_Companion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		775954DEBB2F2EC658B632F4 /* Pods-Mirage Companion AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion AppUITests/Pods-Mirage Companion AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A0CAE92228063717ED1AE92 /* Pods_Mirage_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirage_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3BFEDF2159861C00240A7F /* WiFiConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiConnectionViewController.swift; sourceTree = "<group>"; };
 		8E629119215ED2CA00B68779 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		8E62911F215ED5E200B68779 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -64,6 +79,19 @@
 		8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectorViewController.swift; sourceTree = "<group>"; };
 		8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSetupViewController.swift; sourceTree = "<group>"; };
 		8ED34FBC215FFA4400644006 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8ED34FCA2161244700644006 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8ED34FCB2161244700644006 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8ED34FCE216131C300644006 /* MirageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirageUser.swift; sourceTree = "<group>"; };
+		8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
+		8ED34FD22162DFEE00644006 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		8ED34FD42162DFF700644006 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		8ED34FD62165832400644006 /* EditFreqDestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFreqDestsTableViewController.swift; sourceTree = "<group>"; };
+		8ED34FD82169148900644006 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
+		B1FC6239B280707E9F4FDDDE /* Pods-Mirage Companion App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App.release.xcconfig"; sourceTree = "<group>"; };
+		B9E1C0D819F36B311A604A29 /* Pods_Mirage_Companion_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirage_Companion_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD617126216D5C46001825D5 /* Pods-Mirage Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion AppUITests/Pods-Mirage Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CF105CC8BBC5F39A3C6BA237 /* Pods-Mirage Companion AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion AppTests/Pods-Mirage Companion AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4A29F3709FB2E199785077C /* Pods-Mirage Companion AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion AppTests/Pods-Mirage Companion AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EB724B42156C41D007AC3AE /* ExternalAccessory.framework in Frameworks */,
+				E60CE1D4E0F5CE7745110DDE /* Pods_Mirage_Companion_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A0803C3F12C3AF294C5606 /* Pods_Mirage_Companion_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +116,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1871CDD3309F7C4D4094AEEA /* Pods_Mirage_Companion_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A37DDD166BF9542727571FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				054339910223F100A949AD7F /* Pods-Mirage Companion App.debug.xcconfig */,
+				B1FC6239B280707E9F4FDDDE /* Pods-Mirage Companion App.release.xcconfig */,
+				E4A29F3709FB2E199785077C /* Pods-Mirage Companion AppTests.debug.xcconfig */,
+				CF105CC8BBC5F39A3C6BA237 /* Pods-Mirage Companion AppTests.release.xcconfig */,
+				775954DEBB2F2EC658B632F4 /* Pods-Mirage Companion AppUITests.debug.xcconfig */,
+				CD617126216D5C46001825D5 /* Pods-Mirage Companion AppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8E62911E215ED5CC00B68779 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +153,7 @@
 				8EB724A22156C1CA007AC3AE /* Mirage Companion AppUITests */,
 				8EB7247E2156C1C8007AC3AE /* Products */,
 				8EB724B22156C41D007AC3AE /* Frameworks */,
+				4A37DDD166BF9542727571FD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +170,8 @@
 		8EB7247F2156C1C8007AC3AE /* Mirage Companion App */ = {
 			isa = PBXGroup;
 			children = (
+				8ED34FCA2161244700644006 /* User+CoreDataClass.swift */,
+				8ED34FCB2161244700644006 /* User+CoreDataProperties.swift */,
 				8E62911E215ED5CC00B68779 /* Helpers */,
 				8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */,
 				8EB724802156C1C8007AC3AE /* AppDelegate.swift */,
@@ -138,6 +185,12 @@
 				8ED34FB5215FCFAF00644006 /* BluetoothConnectorViewController.swift */,
 				8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */,
 				8ED34FBC215FFA4400644006 /* WelcomeViewController.swift */,
+				8ED34FCE216131C300644006 /* MirageUser.swift */,
+				8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */,
+				8ED34FD22162DFEE00644006 /* SetupProfileViewController.swift */,
+				8ED34FD42162DFF700644006 /* EditProfileViewController.swift */,
+				8ED34FD62165832400644006 /* EditFreqDestsTableViewController.swift */,
+				8ED34FD82169148900644006 /* UnderlinedTextField.swift */,
 			);
 			path = "Mirage Companion App";
 			sourceTree = "<group>";
@@ -164,6 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				8EB724B32156C41D007AC3AE /* ExternalAccessory.framework */,
+				5B81526A58C1A57B84E603F7 /* Pods_Mirage_Companion_App.framework */,
+				8A0CAE92228063717ED1AE92 /* Pods_Mirage_Companion_AppTests.framework */,
+				B9E1C0D819F36B311A604A29 /* Pods_Mirage_Companion_AppUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EB724A82156C1CA007AC3AE /* Build configuration list for PBXNativeTarget "Mirage Companion App" */;
 			buildPhases = (
+				F413E6248F6E833545D79DB9 /* [CP] Check Pods Manifest.lock */,
 				8EB724792156C1C8007AC3AE /* Sources */,
 				8EB7247A2156C1C8007AC3AE /* Frameworks */,
 				8EB7247B2156C1C8007AC3AE /* Resources */,
+				7BDE552634CCA7775BB28ECE /* [CP] Embed Pods Frameworks */,
+				9AFB916D3E1BE67171F900E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +251,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EB724AB2156C1CA007AC3AE /* Build configuration list for PBXNativeTarget "Mirage Companion AppTests" */;
 			buildPhases = (
+				235CC7D2FD3878DC2854E15D /* [CP] Check Pods Manifest.lock */,
 				8EB724902156C1CA007AC3AE /* Sources */,
 				8EB724912156C1CA007AC3AE /* Frameworks */,
 				8EB724922156C1CA007AC3AE /* Resources */,
@@ -210,6 +270,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EB724AE2156C1CA007AC3AE /* Build configuration list for PBXNativeTarget "Mirage Companion AppUITests" */;
 			buildPhases = (
+				857DB54B413A984D27B9C523 /* [CP] Check Pods Manifest.lock */,
 				8EB7249B2156C1CA007AC3AE /* Sources */,
 				8EB7249C2156C1CA007AC3AE /* Frameworks */,
 				8EB7249D2156C1CA007AC3AE /* Resources */,
@@ -305,6 +366,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		235CC7D2FD3878DC2854E15D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mirage Companion AppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BDE552634CCA7775BB28ECE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		857DB54B413A984D27B9C523 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mirage Companion AppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AFB916D3E1BE67171F900E7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F413E6248F6E833545D79DB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mirage Companion App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8EB724792156C1C8007AC3AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -312,13 +490,21 @@
 			files = (
 				8EB724832156C1C8007AC3AE /* ViewController.swift in Sources */,
 				8ED34FBD215FFA4400644006 /* WelcomeViewController.swift in Sources */,
+				8ED34FCC2161244700644006 /* User+CoreDataClass.swift in Sources */,
 				8EB724892156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld in Sources */,
+				8ED34FD92169148900644006 /* UnderlinedTextField.swift in Sources */,
+				8ED34FD32162DFEE00644006 /* SetupProfileViewController.swift in Sources */,
 				8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */,
+				8ED34FD12161611200644006 /* WelcomeScreenViewController.swift in Sources */,
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
+				8ED34FD52162DFF700644006 /* EditProfileViewController.swift in Sources */,
 				8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */,
+				8ED34FCF216131C300644006 /* MirageUser.swift in Sources */,
 				8E3BFEE02159861C00240A7F /* WiFiConnectionViewController.swift in Sources */,
+				8ED34FCD2161244700644006 /* User+CoreDataProperties.swift in Sources */,
 				8ED34FB6215FCFAF00644006 /* BluetoothConnectorViewController.swift in Sources */,
 				8ED34FB8215FD96A00644006 /* WiFiSetupViewController.swift in Sources */,
+				8ED34FD72165832400644006 /* EditFreqDestsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +675,7 @@
 		};
 		8EB724A92156C1CA007AC3AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 054339910223F100A949AD7F /* Pods-Mirage Companion App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mirage Companion App/Mirage Companion App.entitlements";
@@ -508,6 +695,7 @@
 		};
 		8EB724AA2156C1CA007AC3AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FC6239B280707E9F4FDDDE /* Pods-Mirage Companion App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Mirage Companion App/Mirage Companion App.entitlements";
@@ -527,6 +715,7 @@
 		};
 		8EB724AC2156C1CA007AC3AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4A29F3709FB2E199785077C /* Pods-Mirage Companion AppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -548,6 +737,7 @@
 		};
 		8EB724AD2156C1CA007AC3AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF105CC8BBC5F39A3C6BA237 /* Pods-Mirage Companion AppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -569,6 +759,7 @@
 		};
 		8EB724AF2156C1CA007AC3AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 775954DEBB2F2EC658B632F4 /* Pods-Mirage Companion AppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -589,6 +780,7 @@
 		};
 		8EB724B02156C1CA007AC3AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD617126216D5C46001825D5 /* Pods-Mirage Companion AppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

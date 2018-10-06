@@ -44,6 +44,11 @@ class WiFiSetupViewController: UIViewController {
         
         // Enable Notifications for WiFi Status Characteristic
         miragePeripheral.setNotifyValue(true, for: wifiStatChrc)
+        
+        print(wifiStatChrc)
+        print(wifiSSIDChrc)
+        print(wifiPASSChrc)
+        
     }
     
     
@@ -54,7 +59,9 @@ class WiFiSetupViewController: UIViewController {
             // Tell user to enter information
             print("No information")
         } else {
+            print(ssidValue)
             let ssidData = ssidValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
+            print(ssidData)
             miragePeripheral.writeValue(ssidData!, for: wifiSSIDChrc, type: .withResponse)
         }
     }

@@ -24,19 +24,26 @@ class BluetoothConnectorViewController: UIViewController {
     
     // WiFi Status Value
     var wifiConnected: Bool = false
+    
+    //var activityView = ActivityViewController(message: "Looking for Mirage...")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         centralManager = CBCentralManager(delegate: self, queue: nil)
+        //activityView.view.frame.origin = CGPoint.init(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
+        //view.addSubview(activityView.view)
+       
     }
     
+ 
     
     // MARK: - Navigation
     
     // Check characteristics are not nil before entering WiFiSetup
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
         if (identifier == "SkipWiFiSetup") {
             return true
         }
@@ -103,6 +110,11 @@ extension BluetoothConnectorViewController: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Did connect")
         miragePeripheral!.discoverServices([wifiStatusService])
+        //self.activityView.view.removeFromSuperview()
+    }
+    
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("Could not connect: \(error?.localizedDescription ?? "No error")")
     }
 }
 
@@ -125,10 +137,13 @@ extension BluetoothConnectorViewController: CBPeripheralDelegate {
             
             switch characteristic.uuid {
             case wifiStatChrcUUID:
+                print("Found wifi Stat Chrc")
                 wifiStatChrc = characteristic
             case wifiSSIDChrcUUID:
+                print("Found wifi ssid Chrc")
                 wifiSSIDChrc = characteristic
             case wifiPASSChrcUUID:
+                print("Found wifi pass Chrc")
                 wifiPASSChrc = characteristic
             default:
                 break

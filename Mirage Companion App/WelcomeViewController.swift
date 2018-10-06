@@ -14,9 +14,12 @@ let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
 class WelcomeViewController: UIViewController {
     
     // Core Data variables
-    var user: NSManagedObject!
+    var user: NSManagedObject?
     var context: NSManagedObjectContext!
     var appDelegate: AppDelegate!
+    var mirageUser = User()
+    var container: NSPersistentContainer!
+    
     
     // IBOutlets
     @IBOutlet weak var nameField: UITextField!
@@ -30,34 +33,51 @@ class WelcomeViewController: UIViewController {
         nameField.delegate = self
         addressField.delegate = self
         
+        // Check if user exists on disk
+        if (MirageUser.userExistsOnDisk()) {
+            
+        }
+        
         // Load user from Core Data
         request.returnsObjectsAsFaults = false
         
-        appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-        user = NSManagedObject(entity: entity!, insertInto: context)
+        user = mirageUser.getUser()
+//        container = NSPersistentContainer(name: "Mirage-Companion-App")
         
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                nameField.text = data.value(forKey: "name") as? String
-                addressField.text = data.value(forKey: "address") as? String
-            }
-        } catch {
-            print("Failed!")
-        }
+        
+        appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        container = appDelegate.persistentContainer
+//        context = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
+//        user = NSManagedObject(entity: entity!, insertInto: context)
+//
+//        do {
+//            let result = try context.fetch(request)
+//            let fetchedUser = try context.fetch(request) as! [NSManagedObject]
+//
+//            if fetchedUser.isEmpty {
+//                // Do Introduction
+//            } else {
+//                for data in result as! [NSManagedObject] {
+//                    nameField.text = data.value(forKey: "name") as? String
+//                    addressField.text = data.value(forKey: "address") as? String
+//                }
+//            }
+//        } catch {
+//            print("Failed!")
+//        }
     }
     
     // IBActions
     @IBAction func savePressed(_ sender: Any) {
-        do {
-            try context.save()
-            appDelegate.saveContext()
-            print("Saving worked? \(testSave())")
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        mirageUser.saveUser()
+//        do {
+//            try context.save()
+//            appDelegate.saveContext()
+//            print("Saving worked? \(testSave())")
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
     }
     
     func testSave() -> Bool {
@@ -93,9 +113,9 @@ extension WelcomeViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField == nameField) {
-            user.setValue(textField.text, forKey: "name")
+            user?.setValue(textField.text, forKey: "name")
         } else {
-            user.setValue(textField.text, forKey: "address")
+            user!.setValue(textField.text, forKey: "address")
         }
     }
     
