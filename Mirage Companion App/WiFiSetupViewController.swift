@@ -10,7 +10,9 @@ import UIKit
 import CoreBluetooth
 
 class WiFiSetupViewController: UIViewController {
-
+    
+    var origViewController: UIViewController!
+    
     // Central Core Bluetooth Manager
     var centralManager: CBCentralManager!
     
@@ -33,6 +35,7 @@ class WiFiSetupViewController: UIViewController {
     
     // WiFi Status Value
     var wifiConnected: Bool = false
+    var shouldReceiveUpdate = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +62,7 @@ class WiFiSetupViewController: UIViewController {
             // Tell user to enter information
             print("No information")
         } else {
-            print(ssidValue)
             let ssidData = ssidValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
-            print(ssidData)
             miragePeripheral.writeValue(ssidData!, for: wifiSSIDChrc, type: .withResponse)
         }
     }
@@ -109,8 +110,10 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
         
         if (characteristic == wifiStatChrc) {
             guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
-            if (byte != 0) {
-                self.performSegue(withIdentifier: "WiFiSetupDone", sender: nil)
+            if (byte != 0 && shouldReceiveUpdate) {
+                (origViewController as! WelcomeScreenViewController).animateDisplayTogether()
+                shouldReceiveUpdate = false
+                self.navigationController!.popViewController(animated: true)
             }
         }
     }

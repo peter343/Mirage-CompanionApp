@@ -13,7 +13,9 @@ class SetupProfileViewController: UIViewController {
     // IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var freqDestTextField: UITextField!
+   // @IBOutlet weak var freqDestTextField: UITextField!
+    @IBOutlet weak var addFreqDest: UIButton!
+    @IBOutlet weak var numDestLabel: UILabel!
     
     
 
@@ -25,22 +27,28 @@ class SetupProfileViewController: UIViewController {
         // Assign Delegates
         nameTextField.delegate = self
         addressTextField.delegate = self
-        freqDestTextField.delegate = self
+       // freqDestTextField.delegate = self
     
     }
     
     // IBAction
     @IBAction func saveProfile(_ sender: UIButton) {
         MirageUser.saveUser()
-        self.performSegue(withIdentifier: "setupToWelcome", sender: nil)
+        self.navigationController!.popViewController(animated: true)
     }
     
     @IBAction func goToGoogle(_ sender: UIButton) {
         UIApplication.shared.open(URL(string: "https://www.google.com/device")!)
     }
     
+    @IBAction func addFreqDest(_ sender: Any) {
+        self.performSegue(withIdentifier: "addFreqDest", sender: nil)
+    }
     
-
+    @IBAction func cancelNewProfile(_ sender: Any) {
+        self.navigationController!.popViewController(animated: true)
+    }
+    
     
     // MARK: - Navigation
 
@@ -62,7 +70,7 @@ extension SetupProfileViewController: UITextFieldDelegate {
             break
         case addressTextField:
             addressTextField.resignFirstResponder()
-            freqDestTextField.becomeFirstResponder()
+            //freqDestTextField.becomeFirstResponder()
             break
         default:
             textField.resignFirstResponder()
@@ -79,9 +87,9 @@ extension SetupProfileViewController: UITextFieldDelegate {
         case addressTextField:
             MirageUser.user.address = addressTextField.text
             break
-        case freqDestTextField:
-            MirageUser.user.addFreqDest(dest: freqDestTextField.text)
-            break
+        //case freqDestTextField:
+        //    MirageUser.user.addFreqDest(dest: freqDestTextField.text)
+          //  break
         default:
             break
         }
