@@ -26,7 +26,7 @@ class MirageUser: NSObject {
     
     var name: String?
     var address: String?
-    var freqDests: [String]?
+    var freqDests: [Destination]?
     
     override init() {
         // Do nothing for now
@@ -35,7 +35,7 @@ class MirageUser: NSObject {
     required convenience init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey: UserKeys.nameKey) as? String
         let address = aDecoder.decodeObject(forKey: UserKeys.addressKey) as? String
-        let freqDests = aDecoder.decodeObject(forKey: UserKeys.freqDestsKey) as? [String]
+        let freqDests = aDecoder.decodeObject(forKey: UserKeys.freqDestsKey) as? [Destination]
 
         self.init()
 
@@ -45,13 +45,13 @@ class MirageUser: NSObject {
     }
     
     // Helper for Frequent Destinations
-    func addFreqDest(dest: String?) {
+    func addFreqDest(dest: Destination) {
         if (freqDests == nil) {
             freqDests = []
         }
-        if (dest != nil) {
-            freqDests?.append(dest!)
-        }
+        
+        freqDests!.append(dest)
+        
     }
 }
 

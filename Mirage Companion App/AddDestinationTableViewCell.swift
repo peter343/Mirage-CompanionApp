@@ -1,15 +1,16 @@
 //
-//  FreqDestTableViewCell.swift
+//  AddDestinationTableViewCell.swift
 //  Mirage Companion App
 //
-//  Created by Andrew Peterson on 10/9/18.
+//  Created by Andrew Peterson on 10/7/18.
 //  Copyright © 2018 Mirage. All rights reserved.
 //
 
 import UIKit
 
-class FreqDestTableViewCell: UITableViewCell {
+class AddDestinationTableViewCell: UITableViewCell {
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

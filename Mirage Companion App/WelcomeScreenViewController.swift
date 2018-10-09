@@ -75,10 +75,6 @@ class WelcomeScreenViewController: UIViewController {
             }, completion: nil)
     }
     
-    func messageAnimation() {
-        
-    }
-    
     private func animateDisplayAway() {
         
         UIView.animate(withDuration: 0, animations: { () -> Void in

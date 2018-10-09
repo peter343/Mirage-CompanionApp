@@ -107,7 +107,7 @@ extension EditProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FreqDestTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellID) as! FreqDestTableViewCell
-        cell.destName.text = freqDestNames[indexPath.row]
+//        cell.destName.text = freqDestNames[indexPath.row]
         
         return cell
     }
