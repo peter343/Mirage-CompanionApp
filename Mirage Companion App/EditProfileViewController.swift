@@ -17,23 +17,25 @@ class EditProfileViewController: UIViewController {
     let cellID = "DestinationCell"
     
     var freqDestNames: [String] = []
+    var destinations: [Destination]!
+    
+    var userToEdit: User!
+    var userNumber: Int!
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let userToEdit = userToEdit else { return }
+        nameTextField.text = userToEdit.name
+        addressTextField.text = userToEdit.address
+        destinations = userToEdit.freqDests
 
-        // Load user and fill out views
-        if (MirageUser.loadUser()) {
-            nameTextField.text = MirageUser.user.name
-            addressTextField.text = MirageUser.user.address
-           // freqDestTextField.text = MirageUser.user.freqDests?.joined(separator: " ** ")
-        }
         // Assign Delegates
         nameTextField.delegate = self
         addressTextField.delegate = self
-       // freqDestTextField.delegate = self
         
     }
     

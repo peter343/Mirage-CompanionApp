@@ -16,7 +16,7 @@ class SelectUserViewController: UIViewController {
     let defaultsession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     var errorMessage: String = ""
-    var users: [User] = []
+    var users: [Int : User] = [:]
 
     // IBOutlets
     @IBOutlet weak var userTable: UITableView!
@@ -47,7 +47,7 @@ class SelectUserViewController: UIViewController {
         self.navigationController!.popViewController(animated: true)
     }
     
-    func getNumUsers(completion: @escaping ([User]) -> Void) {
+    func getNumUsers(completion: @escaping ([Int : User]) -> Void) {
         let url = URL(string: "http://192.168.1.81:5000/user/getnum")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let data = data, error == nil else {
@@ -55,7 +55,6 @@ class SelectUserViewController: UIViewController {
                 return
             }
             let response = String(data: data, encoding: .utf8)
-//            print(response ?? "No valid response")
             for i in 0 ..< Int(response ?? "0")! {
                 self.getUser(userNum: i) { _ in
                     DispatchQueue.main.async {
@@ -80,8 +79,7 @@ class SelectUserViewController: UIViewController {
                 let jsonData = try JSONSerialization.jsonObject(with: data, options: [])
                 if let jsonData = jsonData as? [String : Any] {
                     if let user = getUserFromJSON(json: jsonData) {
-                        print(user)
-                        self.users.append(user)
+                        self.users.updateValue(user, forKey: userNum)
                         completion(true)
                     }
                     completion(false)
@@ -104,6 +102,12 @@ class SelectUserViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "EditProfile") {
+            let vc = segue.destination as? EditProfileViewController
+            vc!.userToEdit = (sender as? [Int : User])?.first?.value
+            vc!.userNumber = (sender as? [Int : User])?.first?.key
+        }
+        
     }
     
 
@@ -112,10 +116,8 @@ class SelectUserViewController: UIViewController {
 extension SelectUserViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected user: \((tableView.cellForRow(at: indexPath) as! UserProfileTableViewCell).userName.text)")
-        
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
-        self.performSegue(withIdentifier: "EditProfile", sender: nil)
+        self.performSegue(withIdentifier: "EditProfile", sender: self.users[indexPath.row])
         
     }
 }
@@ -128,7 +130,7 @@ extension SelectUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UserProfileTableViewCell = self.userTable.dequeueReusableCell(withIdentifier: cellID) as! UserProfileTableViewCell
         
-        cell.userName.text = self.users[indexPath.row].name
+        cell.userName.text = self.users[indexPath.row]?.name
         
         return cell
     }
