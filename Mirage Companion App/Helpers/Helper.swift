@@ -10,8 +10,10 @@ import Foundation
 
 func getUserFromJSON(json data: [String : Any]) -> User? {
     guard let userName = data["name"] as? String,
+        let userID = data["id"] as? Int,
         let address = data["address"] as? String,
-        let freqDests = data["freqDests"] as? [[String : Any]] else { return nil }
+        let freqDests = data["freqDests"] as? [[String : Any]],
+        let newsArray = data["news"] as? [String] else { return nil }
     var freqDestinations: [Destination] = []
     for dict in freqDests {
         guard let destName = dict["name"] as? String,
@@ -21,5 +23,5 @@ func getUserFromJSON(json data: [String : Any]) -> User? {
         freqDestinations.append(destination)
     }
     
-    return User(name: userName, address: address, freqDests: freqDestinations)
+    return User(id: userID, name: userName, address: address, freqDests: freqDestinations, news: newsArray)
 }

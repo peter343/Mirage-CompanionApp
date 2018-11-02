@@ -33,13 +33,11 @@ class SelectUserViewController: UIViewController {
         userTable.dataSource = self
         userTable.tableFooterView = UIView()
         
-        self.getNumUsers() { _ in
-            //print(response)
+        DispatchQueue.main.async {
+            self.getNumUsers() { _ in
+                //print(response)
+            }
         }
-        
-//        if (MirageUser.loadUser()) {
-//            userNames.append(MirageUser.user.name ?? "No name")
-//        }
     }
 
     
@@ -48,7 +46,7 @@ class SelectUserViewController: UIViewController {
     }
     
     func getNumUsers(completion: @escaping ([Int : User]) -> Void) {
-        let url = URL(string: "http://192.168.1.81:5000/user/getnum")
+        let url = URL(string: "http://" + ipAddr + ":5000/user/getnum")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "Error: No description")
@@ -69,7 +67,7 @@ class SelectUserViewController: UIViewController {
     }
     
     func getUser(userNum: Int, completion: @escaping (Bool) -> Void) {
-        let url = URL(string: "http://192.168.1.81:5000/user/get/\(userNum)")
+        let url = URL(string: "http://" + ipAddr + ":5000/user/get/\(userNum)")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "Error: No description")

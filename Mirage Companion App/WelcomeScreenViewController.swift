@@ -21,6 +21,7 @@ class WelcomeScreenViewController: UIViewController {
     var wifiStatChrc: CBCharacteristic?
     var wifiSSIDChrc: CBCharacteristic?
     var wifiPASSChrc: CBCharacteristic?
+    var ipAddrChrc: CBCharacteristic?
     
     // WiFi Status Value
     var wifiConnected: Bool = false
@@ -188,6 +189,9 @@ extension WelcomeScreenViewController: CBPeripheralDelegate {
             case wifiPASSChrcUUID:
                 print("Found wifi pass Chrc")
                 wifiPASSChrc = characteristic
+            case ipAddrUUID:
+                print("Found IP Address")
+                ipAddrChrc = characteristic
             default:
                 break
             }
@@ -196,18 +200,32 @@ extension WelcomeScreenViewController: CBPeripheralDelegate {
         if (wifiStatChrc != nil) {
             miragePeripheral?.readValue(for: wifiStatChrc!)
         }
+        if (ipAddrChrc != nil) {
+            miragePeripheral?.readValue(for: ipAddrChrc!)
+        }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
-        wifiConnected = (byte != 0 ? true : false)
-        if (wifiConnected) {
-            self.animateDisplayTogether()
-        } else {
-            usleep(1000000)
-            self.statusMessage.text = "Setting up WiFi..."
-            self.performSegue(withIdentifier: "EnterWiFiSetup", sender: nil)
+        if (characteristic == wifiStatChrc) {
+            guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
+            wifiConnected = (byte != 0 ? true : false)
+            if (wifiConnected) {
+                self.animateDisplayTogether()
+            } else {
+                usleep(1000000)
+                self.statusMessage.text = "Setting up WiFi..."
+                self.performSegue(withIdentifier: "EnterWiFiSetup", sender: nil)
+                
+            }
+        } else if (characteristic == ipAddrChrc) {
+            guard let charData = ipAddrChrc!.value else { print("Could not get value as string")
+                return }
+            for byte in charData {
+                ipAddr.append(Character(UnicodeScalar(byte)))
+            }
+            print(ipAddr)
             
         }
+    
     }
 }

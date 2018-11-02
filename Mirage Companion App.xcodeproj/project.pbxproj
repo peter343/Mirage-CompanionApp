@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		02A0803C3F12C3AF294C5606 /* Pods_Mirage_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0CAE92228063717ED1AE92 /* Pods_Mirage_Companion_AppTests.framework */; };
 		1871CDD3309F7C4D4094AEEA /* Pods_Mirage_Companion_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E1C0D819F36B311A604A29 /* Pods_Mirage_Companion_AppUITests.framework */; };
+		8E08ADB32184E6A000A8068D /* NameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08ADB22184E6A000A8068D /* NameSetupViewController.swift */; };
+		8E08ADB52184E6B200A8068D /* FaceCalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08ADB42184E6B200A8068D /* FaceCalibrationViewController.swift */; };
+		8E08ADB72184E6C400A8068D /* AddressSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08ADB62184E6C400A8068D /* AddressSetupViewController.swift */; };
+		8E08ADBD2184E6FC00A8068D /* NewsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08ADBC2184E6FC00A8068D /* NewsSetupViewController.swift */; };
+		8E08ADBF2184E70A00A8068D /* CalendarSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E08ADBE2184E70A00A8068D /* CalendarSetupViewController.swift */; };
 		8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E629119215ED2CA00B68779 /* ActivityViewController.swift */; };
 		8E629120215ED5E200B68779 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E62911F215ED5E200B68779 /* Constants.swift */; };
 		8E7AD540216D26250024B698 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7AD53F216D26250024B698 /* User.swift */; };
@@ -60,6 +65,11 @@
 		5B81526A58C1A57B84E603F7 /* Pods_Mirage_Companion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirage_Companion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		775954DEBB2F2EC658B632F4 /* Pods-Mirage Companion AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion AppUITests/Pods-Mirage Companion AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0CAE92228063717ED1AE92 /* Pods_Mirage_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirage_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E08ADB22184E6A000A8068D /* NameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSetupViewController.swift; sourceTree = "<group>"; };
+		8E08ADB42184E6B200A8068D /* FaceCalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCalibrationViewController.swift; sourceTree = "<group>"; };
+		8E08ADB62184E6C400A8068D /* AddressSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSetupViewController.swift; sourceTree = "<group>"; };
+		8E08ADBC2184E6FC00A8068D /* NewsSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSetupViewController.swift; sourceTree = "<group>"; };
+		8E08ADBE2184E70A00A8068D /* CalendarSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSetupViewController.swift; sourceTree = "<group>"; };
 		8E629119215ED2CA00B68779 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		8E62911F215ED5E200B68779 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E7AD53F216D26250024B698 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -142,9 +152,44 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8E08ADB12184E68000A8068D /* SetupControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E08ADB22184E6A000A8068D /* NameSetupViewController.swift */,
+				8E08ADB42184E6B200A8068D /* FaceCalibrationViewController.swift */,
+				8E08ADB62184E6C400A8068D /* AddressSetupViewController.swift */,
+				8ED8A6FA216A77BD0024DAC3 /* FreqDestViewController.swift */,
+				8E08ADBC2184E6FC00A8068D /* NewsSetupViewController.swift */,
+				8E08ADBE2184E70A00A8068D /* CalendarSetupViewController.swift */,
+			);
+			path = SetupControllers;
+			sourceTree = "<group>";
+		};
+		8E33D408218A1E8E009E6330 /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				8ED34FCE216131C300644006 /* MirageUser.swift */,
+				8ED34FD22162DFEE00644006 /* SetupProfileViewController.swift */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
+		8E33D409218A46D4009E6330 /* TableViews&Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8ED34FDC2169372800644006 /* UserProfileTableViewCell.swift */,
+				8ED8A6F6216A76880024DAC3 /* DestinationTableViewCell.swift */,
+				8ED8A6F4216A767B0024DAC3 /* AddDestinationTableViewCell.swift */,
+				8E7AD541216D31C80024B698 /* FreqDestTableViewCell.swift */,
+			);
+			path = "TableViews&Cells";
+			sourceTree = "<group>";
+		};
 		8E62911E215ED5CC00B68779 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8E7AD543216D469E0024B698 /* Helper.swift */,
+				8ED34FD82169148900644006 /* UnderlinedTextField.swift */,
 				8E629119215ED2CA00B68779 /* ActivityViewController.swift */,
 				8E62911F215ED5E200B68779 /* Constants.swift */,
 			);
@@ -176,6 +221,9 @@
 		8EB7247F2156C1C8007AC3AE /* Mirage Companion App */ = {
 			isa = PBXGroup;
 			children = (
+				8E33D409218A46D4009E6330 /* TableViews&Cells */,
+				8E33D408218A1E8E009E6330 /* Trash */,
+				8E08ADB12184E68000A8068D /* SetupControllers */,
 				8E62911E215ED5CC00B68779 /* Helpers */,
 				8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */,
 				8EB724802156C1C8007AC3AE /* AppDelegate.swift */,
@@ -185,21 +233,12 @@
 				8EB7248F2156C1CA007AC3AE /* Info.plist */,
 				8EB724872156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld */,
 				8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */,
-				8ED34FCE216131C300644006 /* MirageUser.swift */,
 				8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */,
-				8ED34FD22162DFEE00644006 /* SetupProfileViewController.swift */,
 				8ED34FD42162DFF700644006 /* EditProfileViewController.swift */,
-				8ED34FD82169148900644006 /* UnderlinedTextField.swift */,
 				8ED34FDA2169327E00644006 /* SelectUserViewController.swift */,
-				8ED34FDC2169372800644006 /* UserProfileTableViewCell.swift */,
-				8ED8A6F4216A767B0024DAC3 /* AddDestinationTableViewCell.swift */,
-				8ED8A6F6216A76880024DAC3 /* DestinationTableViewCell.swift */,
-				8ED8A6FA216A77BD0024DAC3 /* FreqDestViewController.swift */,
 				8ED8A6FC216A7A1E0024DAC3 /* Destination.swift */,
 				8ED8A6FE216A819A0024DAC3 /* DestinationEditorViewController.swift */,
 				8E7AD53F216D26250024B698 /* User.swift */,
-				8E7AD541216D31C80024B698 /* FreqDestTableViewCell.swift */,
-				8E7AD543216D469E0024B698 /* Helper.swift */,
 			);
 			path = "Mirage Companion App";
 			sourceTree = "<group>";
@@ -499,6 +538,7 @@
 			files = (
 				8ED8A6FF216A819A0024DAC3 /* DestinationEditorViewController.swift in Sources */,
 				8EB724892156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld in Sources */,
+				8E08ADBF2184E70A00A8068D /* CalendarSetupViewController.swift in Sources */,
 				8ED8A6FB216A77BD0024DAC3 /* FreqDestViewController.swift in Sources */,
 				8ED34FDD2169372800644006 /* UserProfileTableViewCell.swift in Sources */,
 				8ED34FD92169148900644006 /* UnderlinedTextField.swift in Sources */,
@@ -508,12 +548,16 @@
 				8ED34FD12161611200644006 /* WelcomeScreenViewController.swift in Sources */,
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
 				8E7AD542216D31C80024B698 /* FreqDestTableViewCell.swift in Sources */,
+				8E08ADB72184E6C400A8068D /* AddressSetupViewController.swift in Sources */,
 				8ED34FDB2169327E00644006 /* SelectUserViewController.swift in Sources */,
 				8ED34FD52162DFF700644006 /* EditProfileViewController.swift in Sources */,
 				8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */,
+				8E08ADB52184E6B200A8068D /* FaceCalibrationViewController.swift in Sources */,
 				8ED34FCF216131C300644006 /* MirageUser.swift in Sources */,
 				8ED34FB8215FD96A00644006 /* WiFiSetupViewController.swift in Sources */,
+				8E08ADBD2184E6FC00A8068D /* NewsSetupViewController.swift in Sources */,
 				8E7AD540216D26250024B698 /* User.swift in Sources */,
+				8E08ADB32184E6A000A8068D /* NameSetupViewController.swift in Sources */,
 				8ED8A6F5216A767B0024DAC3 /* AddDestinationTableViewCell.swift in Sources */,
 				8ED8A6FD216A7A1E0024DAC3 /* Destination.swift in Sources */,
 				8ED8A6F7216A76880024DAC3 /* DestinationTableViewCell.swift in Sources */,

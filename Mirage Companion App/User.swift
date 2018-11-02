@@ -10,14 +10,18 @@ import Foundation
 
 class User: NSObject, Codable {
     
+    public var id: Int
     public var name: String
     public var address: String
     public var freqDests: [Destination]
+    public var newsCategories: [String]
     
-    init(name: String, address: String, freqDests: [Destination]) {
+    init(id: Int, name: String, address: String, freqDests: [Destination], news: [String]) {
+        self.id = id
         self.name = name
         self.address = address
         self.freqDests = freqDests
+        self.newsCategories = news
     }
     
     func addFreqDest(destination dest: Destination) {

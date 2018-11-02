@@ -37,27 +37,27 @@ class SetupProfileViewController: UIViewController {
     
     // IBAction
     @IBAction func saveProfile(_ sender: UIButton) {
-        let user = User(name: name ?? "", address: address ?? "", freqDests: destinations ?? [])
-        
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(user)
-            let jsonString = String(data: data, encoding: .utf8)!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let url = URL(string: "http://192.168.1.81:5000/user/add/\(jsonString!)")
-            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No error description")
-                    return
-                }
-                let response = String(data: data, encoding: .utf8)
-                print(response ?? "No valid response")
-            }
-            task.resume()
-        } catch {
-            print("Error encoding User to JSON")
-        }
-//        MirageUser.saveUser()
-        self.navigationController!.popViewController(animated: true)
+//        let user = User(name: name ?? "", address: address ?? "", freqDests: destinations ?? [], news: [])
+//        
+//        do {
+//            let encoder = JSONEncoder()
+//            let data = try encoder.encode(user)
+//            let jsonString = String(data: data, encoding: .utf8)!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//            let url = URL(string: "http://10.0.0.140:5000/user/add/\(jsonString!)")
+//            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+//                guard let data = data, error == nil else {
+//                    print(error?.localizedDescription ?? "No error description")
+//                    return
+//                }
+//                let response = String(data: data, encoding: .utf8)
+//                print(response ?? "No valid response")
+//            }
+//            task.resume()
+//        } catch {
+//            print("Error encoding User to JSON")
+//        }
+////        MirageUser.saveUser()
+//        self.navigationController!.popViewController(animated: true)
     }
     
     @IBAction func goToGoogle(_ sender: UIButton) {

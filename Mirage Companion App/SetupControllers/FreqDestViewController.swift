@@ -11,19 +11,17 @@ import UIKit
 class FreqDestViewController: UIViewController {
     
     @IBOutlet weak var destinationsTable: UITableView!
-    @IBOutlet weak var doneButton: UIButton!
+    //@IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var destinationEditorView: UIView!
     @IBOutlet weak var unfocusView: UIView!
 
-    
+    var user: User!
     var myChild: DestinationEditorViewController?
-    
     var destinations: [Destination] = []
-    
     var originViewController: SetupProfileViewController?
-    
     var selectedDestination = 0
-
+    var userFile: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,11 +38,11 @@ class FreqDestViewController: UIViewController {
         
     }
     
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        originViewController?.destinations = self.destinations
-        MirageUser.user.freqDests = destinations
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func doneButtonPressed(_ sender: Any) {
+//        originViewController?.destinations = self.destinations
+//        MirageUser.user.freqDests = destinations
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     func showEditor() {
         unfocusView.isHidden = false
@@ -57,13 +55,25 @@ class FreqDestViewController: UIViewController {
         destinationEditorView.isHidden = true
     }
 
+    @IBAction func nextPressed(_ sender: Any) {
+        user.freqDests = self.destinations
+        performSegue(withIdentifier: "FreqDestToNews", sender: nil)
+    }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if (segue.identifier != nil && segue.identifier == "FreqDestToNews") {
+            let dest = segue.destination as! NewsSetupViewController
+            dest.user = self.user
+            dest.userFile = self.userFile
+        }
     }
     
 

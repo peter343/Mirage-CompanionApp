@@ -62,6 +62,7 @@ class WiFiSetupViewController: UIViewController {
             // Tell user to enter information
             print("No information")
         } else {
+            print("Trying to send ssid")
             let ssidData = ssidValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
             miragePeripheral.writeValue(ssidData!, for: wifiSSIDChrc, type: .withResponse)
         }
@@ -89,6 +90,7 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
         }
         
         if (characteristic == wifiSSIDChrc) {
+            print("Trying to write characteristic")
             let passData = passValue.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
             miragePeripheral.writeValue(passData!, for: wifiPASSChrc, type: .withResponse)
         }
