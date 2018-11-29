@@ -12,7 +12,9 @@ class CalendarSetupViewController: UIViewController {
 
     var user: User!
     var userSaved: Bool = false
-    var userFile: String = ""
+//    var userFile: String = ""
+    var editingProfile: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,97 +22,53 @@ class CalendarSetupViewController: UIViewController {
     }
     
     @IBAction func connectCalendarPressed(_ sender: Any) {
-        // Need to send user's name so Amjad can setup a credentials file for that user
-        // Once file is created we can go to google site, etc.
         UIApplication.shared.open(URL(string: "https://www.google.com/device")!)
-        DispatchQueue.main.async {
-            self.startGoogleAuth() { completed in
-                if (!completed) {
-                    print("Error authenticating user's google calendar")
+        SystemInfo.shared().startGoogleAuth() { authorized in
+            if (authorized) {
+                SystemInfo.shared().sendUser(user: self.user) { saved in
+                    if (saved) {
+                        DispatchQueue.main.async {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    } else {
+                        // Alert unable to save
+                    }
                 }
+            } else {
+                // Alert unable to authorize
             }
         }
-        
-//        if (!userSaved) {
-//            DispatchQueue.main.async {
-//                self.sendUser() { completed in
-//                    if (completed) {
-//                        // Now we start google auth
-//                    } else {
-//                        // Error, cannot start google auth
-//                    }
-//                }
-//            }
-//        }
     }
     
     @IBAction func nextPressed(_ sender: Any) {
         if (!userSaved) {
-            DispatchQueue.main.async {
-                self.sendUser() { completed in
+            if (editingProfile) {
+                print("Updating profile")
+                SystemInfo.shared().updateUser(user: self.user) { completed in
                     if (completed) {
-                        
-                    } else {
-                        // Show error
+                        DispatchQueue.main.async {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    }
+                }
+            } else {
+                print("Adding Profile")
+                SystemInfo.shared().sendUser(user: self.user) { completed in
+                    if (completed) {
+                        DispatchQueue.main.async {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
                     }
                 }
             }
         } else {
 //            self.navigationController?.popToRootViewController(animated: true)
         }
-        self.navigationController?.popToRootViewController(animated: true)
-        
-        
-        // Todo: send info and pop back to home screen
     }
     @IBAction func cancelPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func sendUser(completion: @escaping (Bool) -> Void) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(self.user)
-            let jsonString = String(data: data, encoding: .utf8)!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let url = URL(string: "http://" + ipAddr + ":5000/user/add/\(self.userFile)/\(jsonString!)")
-            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No error description")
-                    completion(false)
-                    return
-                }
-                let response = String(data: data, encoding: .utf8)
-                print(response ?? "No valid response")
-                if (response == "User successfully added") {
-                    print("User saved")
-                    completion(true)
-                    self.userSaved = true
-                }
-            }
-            task.resume()
-        } catch {
-            print("Error encoding User to JSON")
-            completion(false)
-        }
-    }
-    
-    func startGoogleAuth(completion: @escaping (Bool) -> Void) {
-        let url = URL(string: "http://" + ipAddr + ":5000/user/authorize/google/\(self.userFile)")
-        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No error description")
-                completion(false)
-                return
-            }
-            let response = String(data: data, encoding: .utf8)
-            print(response ?? "No valid response")
-            if (response == "Success") {
-                print("Authorization started. Waiting for user to authorize")
-                completion(true)
-            }
-        }
-        task.resume()
-    }
     /*
     // MARK: - Navigation
 
