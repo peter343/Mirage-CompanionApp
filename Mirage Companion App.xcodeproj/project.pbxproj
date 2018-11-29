@@ -17,7 +17,6 @@
 		8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E629119215ED2CA00B68779 /* ActivityViewController.swift */; };
 		8E629120215ED5E200B68779 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E62911F215ED5E200B68779 /* Constants.swift */; };
 		8E7AD540216D26250024B698 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7AD53F216D26250024B698 /* User.swift */; };
-		8E7AD542216D31C80024B698 /* FreqDestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7AD541216D31C80024B698 /* FreqDestTableViewCell.swift */; };
 		8E7AD544216D469E0024B698 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7AD543216D469E0024B698 /* Helper.swift */; };
 		8E89518A218CB3B1004AFF9A /* MirageAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E895189218CB3B1004AFF9A /* MirageAlert.swift */; };
 		8E89518D218CB442004AFF9A /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89518C218CB442004AFF9A /* SystemInfo.swift */; };
@@ -40,12 +39,6 @@
 		8ED8A6FB216A77BD0024DAC3 /* FreqDestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8A6FA216A77BD0024DAC3 /* FreqDestViewController.swift */; };
 		8ED8A6FD216A7A1E0024DAC3 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8A6FC216A7A1E0024DAC3 /* Destination.swift */; };
 		8ED8A6FF216A819A0024DAC3 /* DestinationEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8A6FE216A819A0024DAC3 /* DestinationEditorViewController.swift */; };
-		8EE74CA8218F597D002295C4 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE74CA7218F597D002295C4 /* EditProfileTableViewCell.swift */; };
-		8EE74CAA218F5AB6002295C4 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE74CA9218F5AB6002295C4 /* EditProfileTableViewController.swift */; };
-		8EE74CAC218F5B41002295C4 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE74CAB218F5B41002295C4 /* EditUserViewController.swift */; };
-		8EE74CAE218F5EC4002295C4 /* EditDestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE74CAD218F5EC4002295C4 /* EditDestinationTableViewCell.swift */; };
-		8EE74CB0218F5ED0002295C4 /* EditNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE74CAF218F5ED0002295C4 /* EditNewsTableViewCell.swift */; };
-		8EE74CB2218F652E002295C4 /* RecalibrateFaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE74CB1218F652E002295C4 /* RecalibrateFaceTableViewCell.swift */; };
 		E60CE1D4E0F5CE7745110DDE /* Pods_Mirage_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B81526A58C1A57B84E603F7 /* Pods_Mirage_Companion_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +72,6 @@
 		8E629119215ED2CA00B68779 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		8E62911F215ED5E200B68779 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E7AD53F216D26250024B698 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8E7AD541216D31C80024B698 /* FreqDestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqDestTableViewCell.swift; sourceTree = "<group>"; };
 		8E7AD543216D469E0024B698 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8E895189218CB3B1004AFF9A /* MirageAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirageAlert.swift; sourceTree = "<group>"; };
 		8E89518C218CB442004AFF9A /* SystemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfo.swift; sourceTree = "<group>"; };
@@ -109,12 +101,6 @@
 		8ED8A6FA216A77BD0024DAC3 /* FreqDestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqDestViewController.swift; sourceTree = "<group>"; };
 		8ED8A6FC216A7A1E0024DAC3 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		8ED8A6FE216A819A0024DAC3 /* DestinationEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationEditorViewController.swift; sourceTree = "<group>"; };
-		8EE74CA7218F597D002295C4 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
-		8EE74CA9218F5AB6002295C4 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
-		8EE74CAB218F5B41002295C4 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
-		8EE74CAD218F5EC4002295C4 /* EditDestinationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDestinationTableViewCell.swift; sourceTree = "<group>"; };
-		8EE74CAF218F5ED0002295C4 /* EditNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNewsTableViewCell.swift; sourceTree = "<group>"; };
-		8EE74CB1218F652E002295C4 /* RecalibrateFaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecalibrateFaceTableViewCell.swift; sourceTree = "<group>"; };
 		B1FC6239B280707E9F4FDDDE /* Pods-Mirage Companion App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion App/Pods-Mirage Companion App.release.xcconfig"; sourceTree = "<group>"; };
 		B9E1C0D819F36B311A604A29 /* Pods_Mirage_Companion_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirage_Companion_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD617126216D5C46001825D5 /* Pods-Mirage Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirage Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mirage Companion AppUITests/Pods-Mirage Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,12 +177,6 @@
 				8ED34FDC2169372800644006 /* UserProfileTableViewCell.swift */,
 				8ED8A6F6216A76880024DAC3 /* DestinationTableViewCell.swift */,
 				8ED8A6F4216A767B0024DAC3 /* AddDestinationTableViewCell.swift */,
-				8E7AD541216D31C80024B698 /* FreqDestTableViewCell.swift */,
-				8EE74CA7218F597D002295C4 /* EditProfileTableViewCell.swift */,
-				8EE74CA9218F5AB6002295C4 /* EditProfileTableViewController.swift */,
-				8EE74CAD218F5EC4002295C4 /* EditDestinationTableViewCell.swift */,
-				8EE74CAF218F5ED0002295C4 /* EditNewsTableViewCell.swift */,
-				8EE74CB1218F652E002295C4 /* RecalibrateFaceTableViewCell.swift */,
 			);
 			path = "TableViews & Cells";
 			sourceTree = "<group>";
@@ -249,7 +229,6 @@
 				8EB7248C2156C1CA007AC3AE /* LaunchScreen.storyboard */,
 				8EB7248F2156C1CA007AC3AE /* Info.plist */,
 				8EB724872156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld */,
-				8EE74CAB218F5B41002295C4 /* EditUserViewController.swift */,
 				8ED5B1D321B04DEE00A8DF33 /* TestAddressViewController.swift */,
 			);
 			path = "Mirage Companion App";
@@ -580,7 +559,6 @@
 			files = (
 				8ED8A6FF216A819A0024DAC3 /* DestinationEditorViewController.swift in Sources */,
 				8E89518D218CB442004AFF9A /* SystemInfo.swift in Sources */,
-				8EE74CAE218F5EC4002295C4 /* EditDestinationTableViewCell.swift in Sources */,
 				8EB724892156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld in Sources */,
 				8E08ADBF2184E70A00A8068D /* CalendarSetupViewController.swift in Sources */,
 				8ED8A6FB216A77BD0024DAC3 /* FreqDestViewController.swift in Sources */,
@@ -589,16 +567,10 @@
 				8EB724812156C1C8007AC3AE /* AppDelegate.swift in Sources */,
 				8E7AD544216D469E0024B698 /* Helper.swift in Sources */,
 				8ED34FD12161611200644006 /* WelcomeScreenViewController.swift in Sources */,
-				8EE74CB2218F652E002295C4 /* RecalibrateFaceTableViewCell.swift in Sources */,
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
-				8EE74CB0218F5ED0002295C4 /* EditNewsTableViewCell.swift in Sources */,
-				8EE74CAA218F5AB6002295C4 /* EditProfileTableViewController.swift in Sources */,
 				8ED5B1D421B04DEE00A8DF33 /* TestAddressViewController.swift in Sources */,
 				8E89518A218CB3B1004AFF9A /* MirageAlert.swift in Sources */,
-				8EE74CAC218F5B41002295C4 /* EditUserViewController.swift in Sources */,
-				8E7AD542216D31C80024B698 /* FreqDestTableViewCell.swift in Sources */,
 				8E08ADB72184E6C400A8068D /* AddressSetupViewController.swift in Sources */,
-				8EE74CA8218F597D002295C4 /* EditProfileTableViewCell.swift in Sources */,
 				8ED34FDB2169327E00644006 /* SelectUserViewController.swift in Sources */,
 				8E62911A215ED2CA00B68779 /* ActivityViewController.swift in Sources */,
 				8E08ADB52184E6B200A8068D /* FaceCalibrationViewController.swift in Sources */,
