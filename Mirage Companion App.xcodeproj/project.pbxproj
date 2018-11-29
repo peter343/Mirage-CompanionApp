@@ -164,9 +164,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8E08ADB12184E68000A8068D /* SetupControllers */ = {
+		8E08ADB12184E68000A8068D /* User Setup */ = {
 			isa = PBXGroup;
 			children = (
+				8ED8A6FE216A819A0024DAC3 /* DestinationEditorViewController.swift */,
 				8E08ADB22184E6A000A8068D /* NameSetupViewController.swift */,
 				8E08ADB42184E6B200A8068D /* FaceCalibrationViewController.swift */,
 				8E08ADB62184E6C400A8068D /* AddressSetupViewController.swift */,
@@ -174,7 +175,7 @@
 				8E08ADBC2184E6FC00A8068D /* NewsSetupViewController.swift */,
 				8E08ADBE2184E70A00A8068D /* CalendarSetupViewController.swift */,
 			);
-			path = SetupControllers;
+			path = "User Setup";
 			sourceTree = "<group>";
 		};
 		8E33D408218A1E8E009E6330 /* Trash */ = {
@@ -184,7 +185,7 @@
 			path = Trash;
 			sourceTree = "<group>";
 		};
-		8E33D409218A46D4009E6330 /* TableViews&Cells */ = {
+		8E33D409218A46D4009E6330 /* TableViews & Cells */ = {
 			isa = PBXGroup;
 			children = (
 				8ED34FDC2169372800644006 /* UserProfileTableViewCell.swift */,
@@ -197,7 +198,7 @@
 				8EE74CAF218F5ED0002295C4 /* EditNewsTableViewCell.swift */,
 				8EE74CB1218F652E002295C4 /* RecalibrateFaceTableViewCell.swift */,
 			);
-			path = "TableViews&Cells";
+			path = "TableViews & Cells";
 			sourceTree = "<group>";
 		};
 		8E62911E215ED5CC00B68779 /* Helpers */ = {
@@ -237,9 +238,9 @@
 		8EB7247F2156C1C8007AC3AE /* Mirage Companion App */ = {
 			isa = PBXGroup;
 			children = (
-				8E33D409218A46D4009E6330 /* TableViews&Cells */,
+				8ED5B1D621B076AE00A8DF33 /* View */,
+				8ED5B1D521B0768D00A8DF33 /* Model */,
 				8E33D408218A1E8E009E6330 /* Trash */,
-				8E08ADB12184E68000A8068D /* SetupControllers */,
 				8E62911E215ED5CC00B68779 /* Helpers */,
 				8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */,
 				8EB724802156C1C8007AC3AE /* AppDelegate.swift */,
@@ -248,13 +249,6 @@
 				8EB7248C2156C1CA007AC3AE /* LaunchScreen.storyboard */,
 				8EB7248F2156C1CA007AC3AE /* Info.plist */,
 				8EB724872156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld */,
-				8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */,
-				8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */,
-				8ED34FDA2169327E00644006 /* SelectUserViewController.swift */,
-				8ED8A6FC216A7A1E0024DAC3 /* Destination.swift */,
-				8ED8A6FE216A819A0024DAC3 /* DestinationEditorViewController.swift */,
-				8E7AD53F216D26250024B698 /* User.swift */,
-				8E89518C218CB442004AFF9A /* SystemInfo.swift */,
 				8EE74CAB218F5B41002295C4 /* EditUserViewController.swift */,
 				8ED5B1D321B04DEE00A8DF33 /* TestAddressViewController.swift */,
 			);
@@ -288,6 +282,36 @@
 				B9E1C0D819F36B311A604A29 /* Pods_Mirage_Companion_AppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8ED5B1D521B0768D00A8DF33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E7AD53F216D26250024B698 /* User.swift */,
+				8ED8A6FC216A7A1E0024DAC3 /* Destination.swift */,
+				8E89518C218CB442004AFF9A /* SystemInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8ED5B1D621B076AE00A8DF33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E33D409218A46D4009E6330 /* TableViews & Cells */,
+				8ED34FDA2169327E00644006 /* SelectUserViewController.swift */,
+				8ED5B1D721B076DD00A8DF33 /* System Setup */,
+				8E08ADB12184E68000A8068D /* User Setup */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8ED5B1D721B076DD00A8DF33 /* System Setup */ = {
+			isa = PBXGroup;
+			children = (
+				8ED34FB7215FD96A00644006 /* WiFiSetupViewController.swift */,
+				8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */,
+			);
+			path = "System Setup";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
