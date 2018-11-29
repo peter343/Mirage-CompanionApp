@@ -25,3 +25,24 @@ func getUserFromJSON(json data: [String : Any]) -> User? {
     
     return User(id: userID, name: userName, address: address, freqDests: freqDestinations, news: newsArray)
 }
+
+func getDictFromUser(user: User) -> [String : Any] {
+    var userDict: [String : Any] = [:]
+    
+    userDict.updateValue(String(user.id), forKey: "id")
+    userDict.updateValue(user.name, forKey: "name")
+    userDict.updateValue(user.address, forKey: "address")
+    userDict.updateValue(getDictFromDestinations(dests: user.freqDests), forKey: "freqDest")
+    userDict.updateValue(user.newsCategories, forKey: "news")
+    return userDict
+
+}
+
+func getDictFromDestinations(dests: [Destination?]) -> [String : [[String : String]]] {
+    var encodedDests: [[String : String]] = []
+    for dest in dests {
+        let dict = ["name": dest!.name, "address": dest!.address]
+        encodedDests.append(dict)
+    }
+    return ["freqDests":encodedDests]
+}

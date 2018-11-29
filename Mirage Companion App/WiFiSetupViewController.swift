@@ -75,6 +75,15 @@ class WiFiSetupViewController: UIViewController {
         // Get the new view controller using segue.destination.
         
     }
+    
+    func getAlert(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        return alert
+    }
 }
 
 
@@ -86,6 +95,7 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         guard error == nil else {
             print("Error writing to characteristic: error")
+            self.present(self.getAlert(title: "Error", message: "Could not write to bluetooth characteristic"), animated: true, completion: nil)
             return
         }
         
@@ -99,7 +109,7 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         guard error == nil else {
             print("Error enabling notification for wifiStatus")
-            // Should show alert
+            self.present(self.getAlert(title: "Error", message: "Could not enable notification for WiFi Status"), animated: true, completion: nil)
             return
         }
     }
@@ -107,6 +117,7 @@ extension WiFiSetupViewController: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard error == nil else {
             print("Error receiving notification for characteristic: error")
+            self.present(self.getAlert(title: "Error", message: "Could not receive notification for characteristic"), animated: true, completion: nil)
             return
         }
         

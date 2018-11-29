@@ -18,13 +18,17 @@ class FreqDestViewController: UIViewController {
     var user: User!
     var myChild: DestinationEditorViewController?
     var destinations: [Destination] = []
-    var originViewController: SetupProfileViewController?
+//    var originViewController: SetupProfileViewController?
     var selectedDestination = 0
-    var userFile: String = ""
+//    var userFile: String = ""
+    var editingProfile: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (editingProfile) {
+            self.destinations = user.freqDests
+        }
       
         // Do any additional setup after loading the view.
         destinationsTable.delegate = self
@@ -72,7 +76,8 @@ class FreqDestViewController: UIViewController {
         if (segue.identifier != nil && segue.identifier == "FreqDestToNews") {
             let dest = segue.destination as! NewsSetupViewController
             dest.user = self.user
-            dest.userFile = self.userFile
+            dest.editingProfile = self.editingProfile
+//            dest.userFile = self.userFile
         }
     }
     

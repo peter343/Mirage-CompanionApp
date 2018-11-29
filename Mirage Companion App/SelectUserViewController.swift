@@ -21,7 +21,7 @@ class SelectUserViewController: UIViewController {
     // IBOutlets
     @IBOutlet weak var userTable: UITableView!
     
-    var userNames: [String] = []
+//    var userNames: [String] = []
     
     let cellID = "ProfileCell"
 
@@ -33,66 +33,14 @@ class SelectUserViewController: UIViewController {
         userTable.dataSource = self
         userTable.tableFooterView = UIView()
         
-        DispatchQueue.main.async {
-            self.getNumUsers() { _ in
-                //print(response)
-            }
-        }
+        users = SystemInfo.shared().getUsers()
+        users = [0: User(id: 0, name: "Andrew", address: "427 S. Chauncey Ave. West Lafayette, IN 47906", freqDests: [Destination(name: "Work", address: "6849 Hollingsworth Dr. Indianapolis, IN 46268")], news: ["Business"])]
     }
 
     
     @IBAction func backToHome(_ sender: Any) {
-        self.navigationController!.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    func getNumUsers(completion: @escaping ([Int : User]) -> Void) {
-        let url = URL(string: "http://" + ipAddr + ":5000/user/getnum")
-        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "Error: No description")
-                return
-            }
-            let response = String(data: data, encoding: .utf8)
-            for i in 0 ..< Int(response ?? "0")! {
-                self.getUser(userNum: i) { _ in
-                    DispatchQueue.main.async {
-                        self.userTable.reloadData()
-                    }
-                }
-            }
-            completion(self.users)
-        }
-        task.resume()
-        
-    }
-    
-    func getUser(userNum: Int, completion: @escaping (Bool) -> Void) {
-        let url = URL(string: "http://" + ipAddr + ":5000/user/get/\(userNum)")
-        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "Error: No description")
-                return
-            }
-            do {
-                let jsonData = try JSONSerialization.jsonObject(with: data, options: [])
-                if let jsonData = jsonData as? [String : Any] {
-                    if let user = getUserFromJSON(json: jsonData) {
-                        self.users.updateValue(user, forKey: userNum)
-                        completion(true)
-                    }
-                    completion(false)
-                }
-                completion(false)
-                
-            } catch {
-                print("Unable to read User as JSON")
-                return
-            }
-        }
-        task.resume()
-    }
-    
-    
 
     // MARK: - Navigation
 
@@ -101,9 +49,12 @@ class SelectUserViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "EditProfile") {
-            let vc = segue.destination as? EditProfileViewController
-            vc!.userToEdit = (sender as? [Int : User])?.first?.value
-            vc!.userNumber = (sender as? [Int : User])?.first?.key
+            let dest = segue.destination as? NameSetupViewController
+            dest?.editingProfile = true
+            dest?.user = users[(self.userTable.indexPathForSelectedRow?.row)!]
+//            let vc = segue.destination as? EditProfileViewController
+//            vc!.userToEdit = (sender as? [Int : User])?.first?.value
+//            vc!.userNumber = (sender as? [Int : User])?.first?.key
         }
         
     }
@@ -114,9 +65,8 @@ class SelectUserViewController: UIViewController {
 extension SelectUserViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+//        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)s
         self.performSegue(withIdentifier: "EditProfile", sender: self.users[indexPath.row])
-        
     }
 }
 

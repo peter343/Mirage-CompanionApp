@@ -9,21 +9,14 @@
 import Foundation
 import UIKit
 
+
+/// A Destination object that holds a name and address of a user's frequent destination.
+/// # Is JSON serializable
 class Destination: NSObject, Codable {
     
-//    func encode(with aCoder: NSCoder) {
-//        aCoder.encode(self.name, forKey: "destName")
-//        aCoder.encode(self.address, forKey: "destAddress")
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        let name = aDecoder.decodeObject(forKey: "destName") as? String
-//        let address = aDecoder.decodeObject(forKey: "destAddress") as? String
-//        self.name = name ?? ""
-//        self.address = address ?? ""
-//    }
-//
+    /// Name of the destination
     public var name: String
+    /// Address of the destination
     public var address: String
     
     init(name: String, address: String) {

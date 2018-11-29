@@ -8,12 +8,18 @@
 
 import Foundation
 
+/// A User object contains all necessary properties for creating a user on the Mirage system
 class User: NSObject, Codable {
     
+    /// User's ID in the Mirage System
     public var id: Int
+    /// User's name
     public var name: String
+    /// User's address
     public var address: String
+    /// User's frequent destinations
     public var freqDests: [Destination]
+    /// User's preferred news categories
     public var newsCategories: [String]
     
     init(id: Int, name: String, address: String, freqDests: [Destination], news: [String]) {

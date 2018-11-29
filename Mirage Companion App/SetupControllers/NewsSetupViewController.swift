@@ -12,6 +12,7 @@ class NewsSetupViewController: UIViewController {
     
     var user: User!
     var newsCats: [String] = []
+    var editingProfile: Bool = false
     
     @IBOutlet weak var businessSwitch: UISwitch!
     @IBOutlet weak var entertainSwitch: UISwitch!
@@ -20,7 +21,7 @@ class NewsSetupViewController: UIViewController {
     @IBOutlet weak var sportsSwitch: UISwitch!
     @IBOutlet weak var techSwitch: UISwitch!
     
-    var userFile: String = ""
+//    var userFile: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +70,8 @@ class NewsSetupViewController: UIViewController {
         // Pass the selected object to the new view controller.
         let dest = segue.destination as! CalendarSetupViewController
         dest.user = self.user
-        dest.userFile = self.userFile
+        dest.editingProfile = self.editingProfile
+//        dest.userFile = self.userFile
     }
     
 

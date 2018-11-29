@@ -11,6 +11,9 @@ import CoreBluetooth
 
 class WelcomeScreenViewController: UIViewController {
     
+    // Alert Views
+    var alert: UIAlertController?
+    
     // Central Core Bluetooth Manager
     var centralManager: CBCentralManager!
     
@@ -46,7 +49,7 @@ class WelcomeScreenViewController: UIViewController {
         // If there exists a profile, we can edit a profile
         centralManager = CBCentralManager(delegate: self, queue: nil)
         
-        editProfileButton.isEnabled = MirageUser.userExistsOnDisk()
+        //editProfileButton.isEnabled = MirageUser.userExistsOnDisk()
         
         setupProfileTransform = setupProfileButton.transform
         editProfileTransform = editProfileButton.transform
@@ -87,9 +90,17 @@ class WelcomeScreenViewController: UIViewController {
         })
     }
     
+    func getAlert(title: String, message: String) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default , handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        return alert
+    }
     
     
-
     
     // MARK: - Navigation
 
@@ -119,19 +130,9 @@ extension WelcomeScreenViewController: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
             
-        case .unknown:
-            print("central.state is .unknown")
-        case .resetting:
-            print("central.state is .resetting")
-        case .unsupported:
-            print("central.state is .unsupported")
-        case .unauthorized:
-            print("central.state is .unauthorized")
-        case .poweredOff:
-            print("central.state is .poweredOff")
+        
         case .poweredOn:
             print("central.state is .poweredOn")
-            
             if (centralManager.retrieveConnectedPeripherals(withServices: [wifiStatusService]).isEmpty) {
                 centralManager.scanForPeripherals(withServices: [wifiStatusService], options: nil)
             } else {
@@ -139,7 +140,10 @@ extension WelcomeScreenViewController: CBCentralManagerDelegate {
                 miragePeripheral?.delegate = self
                 centralManager.connect(miragePeripheral!, options: nil)
             }
-            
+            break
+        default:
+            self.present(getAlert(title: "Bluetooth Off", message: "Please enable bluetooth to connect to Mirage"), animated: true, completion: nil)
+            break
         }
     }
     
@@ -159,6 +163,7 @@ extension WelcomeScreenViewController: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("Could not connect: \(error?.localizedDescription ?? "No error")")
+        self.present(self.getAlert(title: "Connection Error", message: "Make sure you are the only one connected to Mirage"), animated: true, completion: nil)
     }
 }
 
@@ -209,7 +214,9 @@ extension WelcomeScreenViewController: CBPeripheralDelegate {
         if (characteristic == wifiStatChrc) {
             guard let characteristicData = wifiStatChrc!.value, let byte = characteristicData.first else { return }
             wifiConnected = (byte != 0 ? true : false)
-            if (wifiConnected) {
+            
+            SystemInfo.shared().setConnectionStatus(connected: (byte != 0 ? true : false))
+            if (SystemInfo.shared().getConnection()) {
                 self.animateDisplayTogether()
             } else {
                 usleep(1000000)
@@ -218,13 +225,19 @@ extension WelcomeScreenViewController: CBPeripheralDelegate {
                 
             }
         } else if (characteristic == ipAddrChrc) {
-            guard let charData = ipAddrChrc!.value else { print("Could not get value as string")
-                return }
-            for byte in charData {
-                ipAddr.append(Character(UnicodeScalar(byte)))
+            guard let charData = ipAddrChrc!.value else {
+                print("Could not get value as string")
+                self.present(self.getAlert(title: "Bluetooth Error", message: "Could not get characteristic value"), animated: true, completion: nil)
+                SystemInfo.shared().setIPAddress(ip: nil)
+                return
             }
-            print(ipAddr)
-            
+            var temp = ""
+            for byte in charData {
+                temp.append(Character(UnicodeScalar(byte)))
+            }
+            SystemInfo.shared().setIPAddress(ip: temp)
+            print(temp)
+            SystemInfo.shared().loadSystemInfo()
         }
     
     }
