@@ -33,7 +33,6 @@
 		8ED34FD12161611200644006 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */; };
 		8ED34FDB2169327E00644006 /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FDA2169327E00644006 /* SelectUserViewController.swift */; };
 		8ED34FDD2169372800644006 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED34FDC2169372800644006 /* UserProfileTableViewCell.swift */; };
-		8ED5B1D421B04DEE00A8DF33 /* TestAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5B1D321B04DEE00A8DF33 /* TestAddressViewController.swift */; };
 		8ED8A6F5216A767B0024DAC3 /* AddDestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8A6F4216A767B0024DAC3 /* AddDestinationTableViewCell.swift */; };
 		8ED8A6F7216A76880024DAC3 /* DestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8A6F6216A76880024DAC3 /* DestinationTableViewCell.swift */; };
 		8ED8A6FB216A77BD0024DAC3 /* FreqDestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8A6FA216A77BD0024DAC3 /* FreqDestViewController.swift */; };
@@ -95,7 +94,6 @@
 		8ED34FD02161611200644006 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		8ED34FDA2169327E00644006 /* SelectUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
 		8ED34FDC2169372800644006 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
-		8ED5B1D321B04DEE00A8DF33 /* TestAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAddressViewController.swift; sourceTree = "<group>"; };
 		8ED8A6F4216A767B0024DAC3 /* AddDestinationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDestinationTableViewCell.swift; sourceTree = "<group>"; };
 		8ED8A6F6216A76880024DAC3 /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
 		8ED8A6FA216A77BD0024DAC3 /* FreqDestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreqDestViewController.swift; sourceTree = "<group>"; };
@@ -164,13 +162,6 @@
 			path = "User Setup";
 			sourceTree = "<group>";
 		};
-		8E33D408218A1E8E009E6330 /* Trash */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Trash;
-			sourceTree = "<group>";
-		};
 		8E33D409218A46D4009E6330 /* TableViews & Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +211,6 @@
 			children = (
 				8ED5B1D621B076AE00A8DF33 /* View */,
 				8ED5B1D521B0768D00A8DF33 /* Model */,
-				8E33D408218A1E8E009E6330 /* Trash */,
 				8E62911E215ED5CC00B68779 /* Helpers */,
 				8EB724B12156C317007AC3AE /* Mirage Companion App.entitlements */,
 				8EB724802156C1C8007AC3AE /* AppDelegate.swift */,
@@ -229,7 +219,6 @@
 				8EB7248C2156C1CA007AC3AE /* LaunchScreen.storyboard */,
 				8EB7248F2156C1CA007AC3AE /* Info.plist */,
 				8EB724872156C1C8007AC3AE /* Mirage_Companion_App.xcdatamodeld */,
-				8ED5B1D321B04DEE00A8DF33 /* TestAddressViewController.swift */,
 			);
 			path = "Mirage Companion App";
 			sourceTree = "<group>";
@@ -568,7 +557,6 @@
 				8E7AD544216D469E0024B698 /* Helper.swift in Sources */,
 				8ED34FD12161611200644006 /* WelcomeScreenViewController.swift in Sources */,
 				8E629120215ED5E200B68779 /* Constants.swift in Sources */,
-				8ED5B1D421B04DEE00A8DF33 /* TestAddressViewController.swift in Sources */,
 				8E89518A218CB3B1004AFF9A /* MirageAlert.swift in Sources */,
 				8E08ADB72184E6C400A8068D /* AddressSetupViewController.swift in Sources */,
 				8ED34FDB2169327E00644006 /* SelectUserViewController.swift in Sources */,

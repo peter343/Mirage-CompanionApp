@@ -53,14 +53,6 @@ extension AddressSetupViewController {
 
 extension AddressSetupViewController: UITextFieldDelegate {
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        // TODO: Do something with this info
-//    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch (textField) {
         case StreetField:
@@ -108,10 +100,7 @@ extension AddressSetupViewController: CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 var address = "" + (place.subThoroughfare ?? "")
                 address += " " + (place.thoroughfare ?? "")
-//                address += " " + (place.locality ?? "")
-//                address += ", " + (place.administrativeArea ?? "")
-//                address += " " + (place.postalCode ?? "")
-//                self.addressField.text = address
+
                 self.StreetField.text = address
                 self.CityField.text = place.locality ?? ""
                 self.StateField.text = place.administrativeArea ?? ""
@@ -138,16 +127,4 @@ extension AddressSetupViewController: CLLocationManagerDelegate {
             completion(placemark, nil)
         }
     }
-    
-//    func checkAddress(address: String, completion: @escaping (Bool) -> Void) {
-//        CLGeocoder().geocodeAddressString(address) { (placemarks, error) in
-//            guard let placemarks = placemarks, error == nil else {
-//                completion(false)
-//                return
-//            }
-//            
-//            
-//        }
-//        
-//    }
 }

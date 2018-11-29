@@ -23,14 +23,3 @@ class alertAction {
     
 }
 
-//func showAlert(title: String, message: String, actionHandlers: alertAction...) -> UIAlertController {
-////    var actions: [UIAlertAction] = []
-//    
-////    var controller = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-////    for action in actionHandlers {
-////        let actionObj = UIAlertAction(title: action.title, style: action.style, handler: action.handler)
-////        controller.addAction(actionObj)
-////    }
-//    
-//}
-
