@@ -16,8 +16,6 @@ class AddressSetupViewController: UIViewController {
     var activityView: ActivityViewController?
     var doneGettingLocation: Bool = false
     
-    
-//    @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var StreetField: UITextField!
     @IBOutlet weak var CityField: UITextField!
     @IBOutlet weak var StateField: UITextField!
@@ -40,7 +38,7 @@ class AddressSetupViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         if (editingProfile) {
-//            addressField.text = user.address
+            setupViewForAddress(address: user.address)
             doneGettingLocation = true
         }
     }
@@ -53,9 +51,15 @@ class AddressSetupViewController: UIViewController {
     }
     
     @IBAction func nextPressed(_ sender: Any) {
-//        user.address = (addressField.text ?? "")
+        user.address = getAddressFromView() ?? ""
         performSegue(withIdentifier: "AddressToFreqDest", sender: nil)
     }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        print("Going back")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func cancelPressed(_ sender: Any) {
     
     }
@@ -92,6 +96,5 @@ class AddressSetupViewController: UIViewController {
         let dest = segue.destination as! FreqDestViewController
         dest.user = self.user
         dest.editingProfile = self.editingProfile
-//        dest.userFile = self.userFile
     }
 }

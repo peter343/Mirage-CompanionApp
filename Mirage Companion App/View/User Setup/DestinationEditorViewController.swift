@@ -12,15 +12,17 @@ class DestinationEditorViewController: UIViewController {
     
     @IBOutlet weak var destNameLabel: UITextField!
     @IBOutlet weak var destAddressLabel: UITextField!
+//    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     var myParent: FreqDestViewController?
     var editingDest: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         destNameLabel.delegate = self
         destAddressLabel.delegate = self
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +56,27 @@ class DestinationEditorViewController: UIViewController {
     @IBAction func cancelPressed(_ sender: Any) {
         myParent?.hideEditor()
     }
+    
+//    @objc func keyboardNotification(notification: Notification) {
+//        if let userInfo = notification.userInfo {
+//            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+//            let endFrameY = endFrame?.origin.y ?? 0
+//            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+//            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+//            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+//            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+//            if endFrameY >= UIScreen.main.bounds.size.height {
+//                self.keyboardHeightLayoutConstraint?.constant = 0.0
+//            } else {
+//                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+//            }
+//            UIView.animate(withDuration: duration,
+//                           delay: TimeInterval(0),
+//                           options: animationCurve,
+//                           animations: { self.view.layoutIfNeeded() },
+//                           completion: nil)
+//        }
+//    }
     
     /*
     // MARK: - Navigation

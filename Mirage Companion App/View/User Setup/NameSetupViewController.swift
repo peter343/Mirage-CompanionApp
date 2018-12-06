@@ -13,7 +13,6 @@ class NameSetupViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     var user: User?
     var name: String = ""
-//    var filename = ""
     var numberUsers: Int = 0
     var editingProfile: Bool = false
     
@@ -23,6 +22,7 @@ class NameSetupViewController: UIViewController {
         
         if (editingProfile) {
             nameField.text = user?.name
+            name = user!.name
         }
     }
     
@@ -32,27 +32,7 @@ class NameSetupViewController: UIViewController {
     
     @IBAction func cancelPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-//        self.navigationController?.popToRootViewController(animated: true)
     }
-    
-//    func getNumUsers(completion: @escaping (Int) -> Void) {
-//        let url = URL(string: "http://" + ipAddr + ":5000/user/getnum")
-//        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-//            guard let data = data, error == nil else {
-//                print(error?.localizedDescription ?? "Error: No description")
-//                completion(0)
-//                return
-//            }
-//            let response = String(data: data, encoding: .utf8)
-//            print("Done")
-//            completion(Int(response ?? "0") ?? 0)
-//        }
-//        task.resume()
-//    }
-//    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        return filename != ""
-//    }
     
     // MARK: - Navigation
 
@@ -63,13 +43,9 @@ class NameSetupViewController: UIViewController {
         if (editingProfile) {
             self.user!.name = self.name
         } else {
-            self.user = User(id: SystemInfo.shared().getNumUsers() ?? 0, name: self.name, address: "", freqDests: [], news: [])
+            self.user = User(id: SystemInfo.shared().getNumUsers() ?? 0, name: self.name, address: "", freqDests: [], news: [], googleConn: "False")
         }
-//        if (self.user == nil) {
-//            self.user = User(id: numberUsers, name: self.name, address: "", freqDests: [], news: [])
-//        } else {
-//            self.user!.name = self.name
-//        }
+
         let dest = segue.destination as! FaceCalibrationViewController
         dest.user = self.user!
         dest.editingProfile = self.editingProfile

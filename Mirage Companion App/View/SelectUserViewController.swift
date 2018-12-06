@@ -23,7 +23,13 @@ class SelectUserViewController: UIViewController {
         userTable.tableFooterView = UIView()
         
         users = SystemInfo.shared().getUsers()
-//        users = [0: User(id: 0, name: "Andrew", address: "427 S. Chauncey Ave. West Lafayette, IN 47906", freqDests: [Destination(name: "Work", address: "6849 Hollingsworth Dr. Indianapolis, IN 46268")], news: ["Business"])]
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = userTable.indexPathForSelectedRow {
+            userTable.deselectRow(at: index, animated: false)
+        }
     }
 
     

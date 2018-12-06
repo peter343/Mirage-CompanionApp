@@ -9,6 +9,8 @@
 import UIKit
 import CoreBluetooth
 
+//var mirageNavigation: UINavigationController?
+
 class WelcomeScreenViewController: UIViewController {
     
     // Alert Views
@@ -45,6 +47,12 @@ class WelcomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        let sb : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let rootView = sb.instantiateViewController(withIdentifier: "HomeScreen")
+//        mirageNavigation = UINavigationController(rootViewController: rootView)
+//        UIApplication.shared.delegate?.window!?.rootViewController = mirageNavigation
+
 
         // If there exists a profile, we can edit a profile
         centralManager = CBCentralManager(delegate: self, queue: nil)

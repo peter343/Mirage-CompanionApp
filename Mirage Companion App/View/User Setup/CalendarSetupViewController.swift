@@ -14,6 +14,8 @@ class CalendarSetupViewController: UIViewController {
     var userSaved: Bool = false
 //    var userFile: String = ""
     var editingProfile: Bool = false
+    var activityView: ActivityViewController?
+    var googleConnected: String = "False"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class CalendarSetupViewController: UIViewController {
         UIApplication.shared.open(URL(string: "https://www.google.com/device")!)
         SystemInfo.shared().startGoogleAuth() { authorized in
             if (authorized) {
+                self.user.googleConnected = "True"
+                self.googleConnected = "True"
                 SystemInfo.shared().sendUser(user: self.user) { saved in
                     if (saved) {
                         DispatchQueue.main.async {
@@ -32,10 +36,12 @@ class CalendarSetupViewController: UIViewController {
                         }
                     } else {
                         // Alert unable to save
+                        
                     }
                 }
             } else {
                 // Alert unable to authorize
+                self.googleConnected = "False"
             }
         }
     }
@@ -44,18 +50,28 @@ class CalendarSetupViewController: UIViewController {
         if (!userSaved) {
             if (editingProfile) {
                 print("Updating profile")
+                activityView = ActivityViewController(message: "Updating your profile...")
+                self.present(activityView!, animated: true, completion: nil)
+                self.user.googleConnected = googleConnected
                 SystemInfo.shared().updateUser(user: self.user) { completed in
+                    print(completed)
                     if (completed) {
                         DispatchQueue.main.async {
+                            self.activityView!.dismiss(animated: true, completion: nil)
                             self.navigationController?.popToRootViewController(animated: true)
                         }
                     }
                 }
             } else {
                 print("Adding Profile")
+                activityView = ActivityViewController(message: "Setting up your profile...")
+                self.present(activityView!, animated: true, completion: nil)
+                self.user.googleConnected = googleConnected
                 SystemInfo.shared().sendUser(user: self.user) { completed in
+                    print(completed)
                     if (completed) {
                         DispatchQueue.main.async {
+                            self.activityView!.dismiss(animated: true, completion: nil)
                             self.navigationController?.popToRootViewController(animated: true)
                         }
                     }
@@ -65,6 +81,12 @@ class CalendarSetupViewController: UIViewController {
 //            self.navigationController?.popToRootViewController(animated: true)
         }
     }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        print("Going back")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func cancelPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }

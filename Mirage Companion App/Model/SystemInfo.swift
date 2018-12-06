@@ -47,7 +47,7 @@ class SystemInfo {
             self.loadNumUsers() { num in
                 self.setNumUsers(num: num)
                 for i in 0 ..< num {
-                    self.getUser(userNum: i) { _ in
+                    self.getUser(userNum: i) { done in
                         // Do nothing
                     }
                 }
@@ -147,6 +147,43 @@ class SystemInfo {
         }
     }
     
+    /// Replaces the user with the same ID in the Mirage system with the one specified.
+    /// - Parameters:
+    ///     - user: User information to send to the Mirage system.
+    ///     - completion: Boolean completion handler.
+    /// - Returns: True or False dependent on whether or not the user in the system was successfully updated
+    func updateUser(user: User, completion: @escaping (Bool) -> Void) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(userInfo(user_info: user))
+            let url = URL(string: "http://" + (SystemInfo.shared().getIPAddress() ?? "") + ":5000/user/update")
+            var request = URLRequest(url: url!)
+            request.httpMethod = "POST"
+            request.httpBody = data
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No error description")
+                    completion(false)
+                    return
+                }
+                let response = String(data: data, encoding: .utf8)
+                print(response ?? "No valid response")
+                if (response == "User successfully updated") {
+                    print("User updated")
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+                
+            }
+            task.resume()
+        } catch {
+            print("Error encoding User to JSON")
+            completion(false)
+        }
+    }
+    
     
 //    func sendUser(user: User, completion: @escaping (Bool) -> Void) {
 //        do {
@@ -182,7 +219,11 @@ class SystemInfo {
     func startGoogleAuth(completion: @escaping (Bool) -> Void) {
       
         let url = URL(string: "http://" + (SystemInfo.shared().getIPAddress() ?? "") + ":5000/user/authorize/google/user" + String(SystemInfo.shared().getNumUsers() ?? 0))
-        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 300
+        sessionConfig.timeoutIntervalForResource = 300
+        let session = URLSession(configuration: sessionConfig)
+        let task = session.dataTask(with: url!) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No error description")
                 completion(false)
@@ -203,6 +244,7 @@ class SystemInfo {
     /// - Returns: True or False dependent on whether or not the facial calibration process has completed or not.
     func startCalibration(completion: @escaping (Bool) -> Void) {
         let url = URL(string: "http://" + (SystemInfo.shared().getIPAddress() ?? "") + ":5000/setup/newuser/" + "user" + String(SystemInfo.shared().getNumUsers() ?? 0))
+        print(url)
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No error description")
@@ -219,42 +261,42 @@ class SystemInfo {
         task.resume()
     }
     
-    /// Replaces the user with the same ID in the Mirage system with the one specified.
-    /// - Parameters:
-    ///     - user: User information to send to the Mirage system.
-    ///     - completion: Boolean completion handler.
-    /// - Returns: True or False dependent on whether or not the user in the system was successfully updated
-    func updateUser(user: User, completion: @escaping (Bool) -> Void) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(userInfo(user_info: user))
-            let url = URL(string: "http://" + (SystemInfo.shared().getIPAddress() ?? "") + ":5000/user/update")
-            var request = URLRequest(url: url!)
-            request.httpMethod = "POST"
-            request.httpBody = data
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No error description")
-                    completion(false)
-                    return
-                }
-                let response = String(data: data, encoding: .utf8)
-                print(response ?? "No valid response")
-                if (response == "User successfully updated") {
-                    print("User updated")
-                    completion(true)
-                } else {
-                    completion(false)
-                }
-                
-            }
-            task.resume()
-        } catch {
-            print("Error encoding User to JSON")
-            completion(false)
-        }
-    }
+//    /// Replaces the user with the same ID in the Mirage system with the one specified.
+//    /// - Parameters:
+//    ///     - user: User information to send to the Mirage system.
+//    ///     - completion: Boolean completion handler.
+//    /// - Returns: True or False dependent on whether or not the user in the system was successfully updated
+//    func updateUser(user: User, completion: @escaping (Bool) -> Void) {
+//        do {
+//            let encoder = JSONEncoder()
+//            let data = try encoder.encode(userInfo(user_info: user))
+//            let url = URL(string: "http://" + (SystemInfo.shared().getIPAddress() ?? "") + ":5000/user/update")
+//            var request = URLRequest(url: url!)
+//            request.httpMethod = "POST"
+//            request.httpBody = data
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+//                guard let data = data, error == nil else {
+//                    print(error?.localizedDescription ?? "No error description")
+//                    completion(false)
+//                    return
+//                }
+//                let response = String(data: data, encoding: .utf8)
+//                print(response ?? "No valid response")
+//                if (response == "User successfully updated") {
+//                    print("User updated")
+//                    completion(true)
+//                } else {
+//                    completion(false)
+//                }
+//
+//            }
+//            task.resume()
+//        } catch {
+//            print("Error encoding User to JSON")
+//            completion(false)
+//        }
+//    }
 //    func updateUser(user: User, completion: @escaping (Bool) -> Void) {
 //        do {
 //            let encoder = JSONEncoder()

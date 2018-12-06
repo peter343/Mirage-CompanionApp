@@ -21,34 +21,81 @@ class NewsSetupViewController: UIViewController {
     @IBOutlet weak var sportsSwitch: UISwitch!
     @IBOutlet weak var techSwitch: UISwitch!
     
-//    var userFile: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        newsCats = []
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        // Do any additional setup after loading the view.
-        newsCats = ["business", "entertainment", "health", "science", "sports", "technology"]
+        newsCats = user.newsCategories
+        
+        businessSwitch.isOn = user.newsCategories.contains("business")
+        entertainSwitch.isOn = user.newsCategories.contains("enterainment")
+        healthSwitch.isOn = user.newsCategories.contains("health")
+        scienceSwitch.isOn = user.newsCategories.contains("science")
+        sportsSwitch.isOn = user.newsCategories.contains("sports")
+        techSwitch.isOn = user.newsCategories.contains("technology")
+        
     }
     
     @IBAction func switchSwitched(_ sender: UISwitch) {
         switch sender {
         case businessSwitch:
-            if let index = newsCats.firstIndex(of: "business") { newsCats.remove(at: index) }
-            else { newsCats.append("business") }
+            if businessSwitch.isOn {
+                newsCats.append("business")
+            } else {
+                if let index = newsCats.firstIndex(of: "business") {
+                    newsCats.remove(at: index)
+                }
+            }
+
         case entertainSwitch:
-            if let index = newsCats.firstIndex(of: "entertainment") { newsCats.remove(at: index) }
-            else { newsCats.append("entertainment") }
+            if entertainSwitch.isOn {
+                newsCats.append("entertainment")
+            } else {
+                if let index = newsCats.firstIndex(of: "entertainment") {
+                    newsCats.remove(at: index)
+                }
+            }
+            
         case healthSwitch:
-            if let index = newsCats.firstIndex(of: "health") { newsCats.remove(at: index) }
-            else { newsCats.append("health") }
+            if healthSwitch.isOn {
+                newsCats.append("health")
+            } else {
+                if let index = newsCats.firstIndex(of: "health") {
+                    newsCats.remove(at: index)
+                }
+            }
+
         case scienceSwitch:
-            if let index = newsCats.firstIndex(of: "science") { newsCats.remove(at: index) }
-            else { newsCats.append("science") }
+            if scienceSwitch.isOn {
+                newsCats.append("science")
+            } else {
+                if let index = newsCats.firstIndex(of: "science") {
+                    newsCats.remove(at: index)
+                }
+            }
+
         case sportsSwitch:
-            if let index = newsCats.firstIndex(of: "sports") { newsCats.remove(at: index) }
-            else { newsCats.append("sports") }
+            
+            if sportsSwitch.isOn {
+                newsCats.append("sports")
+            } else {
+                if let index = newsCats.firstIndex(of: "sports") {
+                    newsCats.remove(at: index)
+                }
+            }
+
         case techSwitch:
-            if let index = newsCats.firstIndex(of: "technology") { newsCats.remove(at: index) }
-            else { newsCats.append("technology") }
+            if techSwitch.isOn {
+                newsCats.append("technology")
+            } else {
+                if let index = newsCats.firstIndex(of: "technology") {
+                    newsCats.remove(at: index)
+                }
+            }
+
         default:
             break
         }
@@ -57,8 +104,15 @@ class NewsSetupViewController: UIViewController {
     
     @IBAction func nextPressed(_ sender: Any) {
         user.newsCategories = newsCats
+        
         performSegue(withIdentifier: "NewsToCalendar", sender: nil)
     }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        print("Going back")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func cancelPressed(_ sender: Any) {
     }
     
@@ -71,7 +125,6 @@ class NewsSetupViewController: UIViewController {
         let dest = segue.destination as! CalendarSetupViewController
         dest.user = self.user
         dest.editingProfile = self.editingProfile
-//        dest.userFile = self.userFile
     }
     
 

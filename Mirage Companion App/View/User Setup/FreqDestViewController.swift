@@ -18,9 +18,7 @@ class FreqDestViewController: UIViewController {
     var user: User!
     var myChild: DestinationEditorViewController?
     var destinations: [Destination] = []
-//    var originViewController: SetupProfileViewController?
     var selectedDestination = 0
-//    var userFile: String = ""
     var editingProfile: Bool = false
     
     override func viewDidLoad() {
@@ -42,12 +40,6 @@ class FreqDestViewController: UIViewController {
         
     }
     
-//    @IBAction func doneButtonPressed(_ sender: Any) {
-//        originViewController?.destinations = self.destinations
-//        MirageUser.user.freqDests = destinations
-//        self.navigationController?.popViewController(animated: true)
-//    }
-    
     func showEditor() {
         unfocusView.isHidden = false
         destinationEditorView.isHidden = false
@@ -64,6 +56,11 @@ class FreqDestViewController: UIViewController {
         performSegue(withIdentifier: "FreqDestToNews", sender: nil)
     }
     
+    @IBAction func backPressed(_ sender: Any) {
+        print("Going back")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func cancelPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -77,7 +74,6 @@ class FreqDestViewController: UIViewController {
             let dest = segue.destination as! NewsSetupViewController
             dest.user = self.user
             dest.editingProfile = self.editingProfile
-//            dest.userFile = self.userFile
         }
     }
     

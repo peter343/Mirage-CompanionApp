@@ -13,7 +13,8 @@ func getUserFromJSON(json data: [String : Any]) -> User? {
         let userID = data["id"] as? Int,
         let address = data["address"] as? String,
         let freqDests = data["freqDests"] as? [[String : Any]],
-        let newsArray = data["news"] as? [String] else { return nil }
+        let newsArray = data["newsCategories"] as? [String],
+        let googleConn = data["googleConnected"] as? String else { return nil }
     var freqDestinations: [Destination] = []
     for dict in freqDests {
         guard let destName = dict["name"] as? String,
@@ -23,7 +24,7 @@ func getUserFromJSON(json data: [String : Any]) -> User? {
         freqDestinations.append(destination)
     }
     
-    return User(id: userID, name: userName, address: address, freqDests: freqDestinations, news: newsArray)
+    return User(id: userID, name: userName, address: address, freqDests: freqDestinations, news: newsArray, googleConn: googleConn)
 }
 
 func getDictFromUser(user: User) -> [String : Any] {
@@ -34,6 +35,7 @@ func getDictFromUser(user: User) -> [String : Any] {
     userDict.updateValue(user.address, forKey: "address")
     userDict.updateValue(getDictFromDestinations(dests: user.freqDests), forKey: "freqDest")
     userDict.updateValue(user.newsCategories, forKey: "news")
+    userDict.updateValue(user.googleConnected, forKey: "googleConnected")
     return userDict
 
 }

@@ -21,13 +21,16 @@ class User: NSObject, Codable {
     public var freqDests: [Destination]
     /// User's preferred news categories
     public var newsCategories: [String]
+    /// If the user has connected their Google Calendar
+    public var googleConnected: String
     
-    init(id: Int, name: String, address: String, freqDests: [Destination], news: [String]) {
+    init(id: Int, name: String, address: String, freqDests: [Destination], news: [String], googleConn: String) {
         self.id = id
         self.name = name
         self.address = address
         self.freqDests = freqDests
         self.newsCategories = news
+        self.googleConnected = googleConn
     }
     
     func addFreqDest(destination dest: Destination) {
